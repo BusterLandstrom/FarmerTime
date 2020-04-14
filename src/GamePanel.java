@@ -10,6 +10,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
     Player player;
 
+    SpawnBlock sp;
+
     /**/ //Declaring Timer object as gameTimer
     Timer gameTimer;
     /**/
@@ -18,7 +20,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
     public GamePanel() throws IOException {
 
 
-        player = new Player(400,300,this);
+        player = new Player(975,100,this);
+        sp = new SpawnBlock(975,100,this);
 
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -40,6 +43,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         super.paint(g);
 
         Graphics2D g2d = (Graphics2D) g;
+        sp.draw(g2d);
         player.draw(g2d);
     }
     /**/
