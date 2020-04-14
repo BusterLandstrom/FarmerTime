@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,11 +9,25 @@ public class Player {
 
     GamePanel gp;
 
-    /**/ //Character
+    /**/ //Character base variables
     int x;
     int y;
     int height;
     int width;
+    /**/
+
+    /**/ //Checking if movement button is pressed
+    boolean keyUp;
+    boolean keyLeft;
+    boolean keyRight;
+    boolean keyDown;
+    int direction = 1;
+    /**/
+
+    /**/ //X and Y speed of character
+    double xs;
+    double ys;
+    int maxSpeed = 8;
     /**/
 
     /**/ //Setting up character hit box
@@ -44,12 +59,89 @@ public class Player {
 
 
     public void set(){
+        if(keyLeft && keyRight || !keyLeft && !keyRight){
+            xs *= 0.8;
+        } else if (keyLeft && !keyRight){
+            xs--;
+            direction = 0;
+        } else if (!keyLeft && keyRight){
+            xs++;
+            direction = 1;
+        }
+
+        if(keyUp && keyDown || !keyUp && !keyDown){
+            ys *= 0.8;
+        } else if (keyUp && !keyDown){
+            ys--;
+        } else if (!keyUp && keyDown){
+            ys++;
+        }
+
+        if(xs > 0 && xs < .75){
+            xs = 0;
+        }
+        if(xs < 0 && xs > -.75){
+            xs = 0;
+        }
+
+        if(xs > maxSpeed) {
+            xs = maxSpeed;
+        }
+        if(xs < -maxSpeed) {
+            xs = -maxSpeed;
+        }
+
+        if(ys > maxSpeed) {
+            ys = maxSpeed;
+        }
+        if(ys < -maxSpeed) {
+            ys = -maxSpeed;
+        }
+
+        if(x >= 1216){
+            charHitBox.x -= xs;
+            charHitBox.x -= Math.signum(xs);
+            xs = 0;
+            x = charHitBox.x;
+        } else if(x <= -1){
+            charHitBox.x -= xs;
+            charHitBox.x -= Math.signum(xs);
+            xs = 0;
+            x = charHitBox.x;
+        }
+
+        if(y >= 634){
+            charHitBox.y -= ys;
+            charHitBox.y -= Math.signum(ys);
+            ys = 0;
+            y = charHitBox.y;
+        } else if(y <= -1){
+            charHitBox.y -= ys;
+            charHitBox.y -= Math.signum(ys);
+            ys = 0;
+            y = charHitBox.y;
+        }
+
+        charHitBox.x += xs;
+        charHitBox.y += ys;
+
+        x += xs;
+        y += ys;
+
+        charHitBox.x = x;
+        charHitBox.y = y;
     }
 
 
     public void draw(Graphics2D g2d){
-
-        g2d.setColor(Color.RED);
-        g2d.fillRect(x,y,width,height);
+        if(direction == 0){
+            g2d.setColor(Color.RED);
+            g2d.drawImage(charSprite, x + width, y, -width, height, null);
+            g2d.drawRect(x,y,width,height);
+        } else {
+            g2d.setColor(Color.RED);
+            g2d.drawImage(charSprite, x, y, width, height, null);
+            g2d.drawRect(x, y, width, height);
+        }
     }
 }
