@@ -1,4 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public class SpawnBlock {
@@ -10,6 +13,10 @@ public class SpawnBlock {
     int width;
     int height;
 
+    /**/ //Declaring the spawn sprite
+    final BufferedImage spawnSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\start.png"));
+    /**/
+
     public SpawnBlock(int x, int y, GamePanel gp) throws IOException {
         this.gp = gp;
         this.x = x;
@@ -20,7 +27,6 @@ public class SpawnBlock {
     }
 
     public void draw(Graphics2D g2d){
-        g2d.setColor(Color.YELLOW);
-        g2d.fillRect(x,y,width,height);
+        g2d.drawImage(spawnSprite, x, y, width, height, null);
     }
 }
