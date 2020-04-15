@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -37,8 +38,6 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         }, 0, 17);
 
     }
-
-
     /**/
 
     /**/ // Function to paint the panel window

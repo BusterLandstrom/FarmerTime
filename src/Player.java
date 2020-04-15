@@ -1,5 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,7 +24,10 @@ public class Player {
     boolean keyRight;
     boolean keyDown;
     int direction = 1;
+    boolean menu = false;
     /**/
+
+    House house;
 
     /**/ //X and Y speed of character
     double xs;
@@ -36,6 +41,10 @@ public class Player {
 
     /**/ //Declaring the player sprite
     final BufferedImage charSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player.png"));
+    /**/
+
+    /**/ //Declaring the player sprite
+    final BufferedImage menuSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\menu.png"));
     /**/
 
 
@@ -58,64 +67,37 @@ public class Player {
     /**/
 
 
-    public void set(){
-        if(keyLeft && keyRight || !keyLeft && !keyRight){
+    public void set() {
+
+        Move();
+
+        if(charHitBox.intersects(house.houseHitBox)){
+            menu = true;
+        } else{
+            menu = false;
+        }
+    }
+
+    void Move(){
+
+        if (keyLeft && keyRight || !keyLeft && !keyRight) {
             xs *= 0.8;
-        } else if (keyLeft && !keyRight){
+        } else if (keyLeft && !keyRight) {
             xs--;
             direction = 0;
-        } else if (!keyLeft && keyRight){
+        } else if (!keyLeft && keyRight) {
             xs++;
             direction = 1;
         }
 
-        if(keyUp && keyDown || !keyUp && !keyDown){
+        if (keyUp && keyDown || !keyUp && !keyDown) {
             ys *= 0.8;
-        } else if (keyUp && !keyDown){
+        } else if (keyUp && !keyDown) {
             ys--;
-        } else if (!keyUp && keyDown){
+        } else if (!keyUp && keyDown) {
             ys++;
         }
 
-        if(xs > 0 && xs < .75){
-            xs = 0;
-        }
-        if(xs < 0 && xs > -.75){
-            xs = 0;
-        }
-
-        if(ys > 0 && ys < .75){
-            ys = 0;
-        }
-        if(ys < 0 && ys > -.75){
-            ys = 0;
-        }
-
-        if(xs > maxSpeed) {
-            xs = maxSpeed;
-        }
-        if(xs < -maxSpeed) {
-            xs = -maxSpeed;
-        }
-
-        if(ys > maxSpeed) {
-            ys = maxSpeed;
-        }
-        if(ys < -maxSpeed) {
-            ys = -maxSpeed;
-        }
-
-        if(x >= 1216){
-            charHitBox.x -= xs;
-            charHitBox.x -= Math.signum(xs);
-            xs = 0;
-            x = charHitBox.x;
-        } else if(x <= -1){
-            charHitBox.x -= xs;
-            charHitBox.x -= Math.signum(xs);
-            xs = 0;
-            x = charHitBox.x;
-        }
 
         if(y >= 634){
             charHitBox.y -= ys;
@@ -129,6 +111,47 @@ public class Player {
             y = charHitBox.y;
         }
 
+
+        if (xs > 0 && xs < .75) {
+            xs = 0;
+        }
+        if (xs < 0 && xs > -.75) {
+            xs = 0;
+        }
+
+        if (ys > 0 && ys < .75) {
+            ys = 0;
+        }
+        if (ys < 0 && ys > -.75) {
+            ys = 0;
+        }
+
+        if (xs > maxSpeed) {
+            xs = maxSpeed;
+        }
+        if (xs < -maxSpeed) {
+            xs = -maxSpeed;
+        }
+
+        if (ys > maxSpeed) {
+            ys = maxSpeed;
+        }
+        if (ys < -maxSpeed) {
+            ys = -maxSpeed;
+        }
+
+        if (x >= 1216) {
+            charHitBox.x -= xs;
+            charHitBox.x -= Math.signum(xs);
+            xs = 0;
+            x = charHitBox.x;
+        } else if (x <= -1) {
+            charHitBox.x -= xs;
+            charHitBox.x -= Math.signum(xs);
+            xs = 0;
+            x = charHitBox.x;
+        }
+
         charHitBox.x += xs;
         charHitBox.y += ys;
 
@@ -137,6 +160,14 @@ public class Player {
 
         charHitBox.x = x;
         charHitBox.y = y;
+
+        gp.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                System.out.println(e.getX() + "," + e.getY());
+            }
+        });
+
     }
 
 
@@ -149,6 +180,9 @@ public class Player {
             g2d.setColor(Color.RED);
             g2d.drawImage(charSprite, x, y, width, height, null);
             g2d.drawRect(x, y, width, height);
+        }
+        if(menu){
+            g2d.drawImage(menuSprite, 200, 200, 300, 300, null);
         }
     }
 }

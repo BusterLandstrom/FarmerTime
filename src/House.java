@@ -28,7 +28,7 @@ public class House {
 
         width = 200;
         height = 400;
-        houseHitBox = new Rectangle(x,y,width,height);
+        houseHitBox = new Rectangle(x + 50 ,y + 50,width - 50,height - 50);
     }
 
     public void draw(Graphics2D g2d){
