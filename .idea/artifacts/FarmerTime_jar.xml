@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FarmerTime:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FarmerTime_jar</output-path>
+    <root id="archive" name="FarmerTime.jar">
+      <element id="module-output" name="FarmerTime" />
+    </root>
+  </artifact>
+</component>
