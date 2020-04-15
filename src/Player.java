@@ -84,6 +84,13 @@ public class Player {
             xs = 0;
         }
 
+        if(ys > 0 && ys < .75){
+            ys = 0;
+        }
+        if(ys < 0 && ys > -.75){
+            ys = 0;
+        }
+
         if(xs > maxSpeed) {
             xs = maxSpeed;
         }
