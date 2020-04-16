@@ -75,6 +75,9 @@ public class Player {
 
         Move();
 
+        buttonClicks();
+
+
         if(charHitBox.intersects(house.houseHitBox)){
             menu = true;
         } else{
@@ -165,6 +168,9 @@ public class Player {
         charHitBox.x = x;
         charHitBox.y = y;
 
+    }
+
+    void buttonClicks(){
         gp.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -178,7 +184,6 @@ public class Player {
                 }
             }
         });
-
     }
 
 

@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="108f6edb-cdca-4ebe-94f5-304d04f489ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +80,7 @@
       <updated>1586898923634</updated>
       <workItem from="1586898926779" duration="5981000" />
       <workItem from="1586942502397" duration="8592000" />
-      <workItem from="1587038540903" duration="2771000" />
+      <workItem from="1587038540903" duration="3217000" />
     </task>
     <servers />
   </component>
