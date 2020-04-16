@@ -4,7 +4,7 @@ import java.io.IOException;
 public class GameFrame extends javax.swing.JFrame {
 
     /**/ //GameFrame constructor
-    public GameFrame() throws IOException {
+    public GameFrame() throws IOException, FontFormatException {
         Color bgc = new Color(51,255,221);
 
         GamePanel gp = new GamePanel();

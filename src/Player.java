@@ -6,10 +6,14 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class Player {
 
     GamePanel gp;
+
+    String dayString;
+    int day;
 
     /**/ //Character base variables
     int x;
@@ -25,9 +29,13 @@ public class Player {
     boolean keyDown;
     int direction = 1;
     boolean menu = false;
+    boolean nextDayReady = true;
     /**/
 
     House house;
+
+    Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("G:\\FarmerTime\\Sprites\\FFFFORWA.TTF"));
+    Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 32);
 
     /**/ //X and Y speed of character
     double xs;
@@ -54,7 +62,7 @@ public class Player {
 
 
     /**/ //Instantiating the player through constructor
-    public Player(int x, int y, GamePanel gp) throws IOException {
+    public Player(int x, int y, GamePanel gp) throws IOException, FontFormatException {
         /**/ //Setting all variables same as parent variable
         this.gp = gp;
         this.x = x;
@@ -75,13 +83,19 @@ public class Player {
 
         Move();
 
+        dayString = "Days: " + day;
+
         buttonClicks();
+
+        System.out.println(day);
 
 
         if(charHitBox.intersects(house.houseHitBox)){
             menu = true;
+
         } else{
             menu = false;
+            nextDayReady = true;
         }
     }
 
@@ -176,10 +190,13 @@ public class Player {
             public void mousePressed(MouseEvent e) {
                 if(menu) {
                     if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 50 && e.getY() <= 100) {
-                        System.out.println("Sleep pressed");
+                        if(nextDayReady) {
+                            day = day + 1;
+                            nextDayReady = false;
+                        }
                     }
                     if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 120 && e.getY() <= 170) {
-                        System.out.println("Seedsd pressed");
+                        System.out.println("Seeds pressed");
                     }
                 }
             }
@@ -188,6 +205,8 @@ public class Player {
 
 
     public void draw(Graphics2D g2d){
+        g2d.setFont(ttfReal);
+        g2d.drawString(dayString, 530, 55);
         if(direction == 0){
             g2d.setColor(Color.RED);
             g2d.drawImage(charSprite, x + width, y, -width, height, null);

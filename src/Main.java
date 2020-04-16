@@ -7,7 +7,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 public class Main {
 
     /**/ //Main function to initiate all other functions and set base values
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, FontFormatException {
         GameFrame gf = new GameFrame();
 
         gf.setSize(1280, 720);

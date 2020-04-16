@@ -20,7 +20,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
     /**/
 
     /**/ //GamePanel constructor
-    public GamePanel() throws IOException {
+    public GamePanel() throws IOException, FontFormatException {
 
 
         player = new Player(975,100,this);
