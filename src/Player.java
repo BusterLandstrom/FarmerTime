@@ -43,8 +43,12 @@ public class Player {
     final BufferedImage charSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player.png"));
     /**/
 
-    /**/ //Declaring the player sprite
-    final BufferedImage menuSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\menu.png"));
+    /**/ //Declaring the sleep sprite
+    final BufferedImage sleepSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\sleep.png"));
+    /**/
+
+    /**/ //Declaring the seeds sprite
+    final BufferedImage seedsSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\seeds.png"));
     /**/
 
 
@@ -164,7 +168,14 @@ public class Player {
         gp.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.println(e.getX() + "," + e.getY());
+                if(menu) {
+                    if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 50 && e.getY() <= 100) {
+                        System.out.println("Sleep pressed");
+                    }
+                    if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 120 && e.getY() <= 170) {
+                        System.out.println("Seedsd pressed");
+                    }
+                }
             }
         });
 
@@ -182,7 +193,8 @@ public class Player {
             g2d.drawRect(x, y, width, height);
         }
         if(menu){
-            g2d.drawImage(menuSprite, 200, 200, 300, 300, null);
+            g2d.drawImage(sleepSprite, 50, 50, 100, 50, null);
+            g2d.drawImage(seedsSprite, 50, 120, 100, 50, null);
         }
     }
 }
