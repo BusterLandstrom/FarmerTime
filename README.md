@@ -26,6 +26,8 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 Button sprites : <a href="https://adwitr.itch.io/button-asset-pack">Button Asset Pack</a> by <a href="https://adwitr.itch.io">Adwitr</a>
 
+Font used: <a href="https://www.1001fonts.com/fff-forward-font.html">FFF Forward</a> by <a href="https://www.1001fonts.com/users/fontsforflash/">Fonts For Flash</a>
+
 Sprites made with <a href="https://www.aseprite.org/">Aseprite</a>
 
 Java IDE used <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
