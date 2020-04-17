@@ -29,9 +29,9 @@ public class Main {
             }
         }, 0, 17);
 
-        gf.setIconImage(Toolkit.getDefaultToolkit().getImage("G:\\FarmerTime\\Sprites\\icon.png"));
+        gf.setIconImage(Toolkit.getDefaultToolkit().getImage("G:\\FarmerTime\\Sprites\\icon-export.png"));
         Dimension screenSize = getDefaultToolkit().getScreenSize();
-        gf.setLocation((int)(screenSize.getWidth()/2 - gf.getSize().getWidth()/2), (int)(screenSize.getHeight()/2 - gf.getSize().getHeight()/2));
+        gf.setLocation((screenSize.width/6 - gf.getSize().width/6), (screenSize.height/6 - gf.getSize().height/6));
 
         gf.setResizable(false);
         gf.setVisible(true);

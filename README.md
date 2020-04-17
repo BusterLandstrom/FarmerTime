@@ -28,4 +28,4 @@ Button sprites : <a href="https://adwitr.itch.io/button-asset-pack">Button Asset
 
 Sprites made with <a href="https://www.aseprite.org/">Aseprite</a>
 
-Java IDE used <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA Ultimate</a>
+Java IDE used <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>

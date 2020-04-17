@@ -33,6 +33,8 @@ public class Player {
     double seedTextTimeout = 0;
     double seedTimeout = 0;
     int storedSeeds = 10;
+    boolean canPlant = true;
+    double insideTimeout = 0;
 
     /**/ //Character base variables
     int x;
@@ -61,8 +63,6 @@ public class Player {
     double ys;
     int maxSpeed = 8;
     /**/
-
-    KeyEvent e;
 
     /**/ //Setting up character hit box
     Rectangle charHitBox;
@@ -109,7 +109,11 @@ public class Player {
         Move();
 
         if(keyE) {
-            plantSeed();
+            if(canPlant) {
+                plantSeed();
+            } else {
+                insideTimeout = 10;
+            }
         }
 
         ttfReal = ttfBase.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
@@ -145,15 +149,18 @@ public class Player {
 
         if(charHitBox.intersects(House.houseHitBox)){
             menu = true;
+            canPlant = false;
         } else if (!(charHitBox.intersects(House.houseHitBox))){
             menu = false;
             nextDayReady = true;
+            canPlant = true;
             screenChangeReady = true;
         }
         seedTextTimeout -= 0.8;
         seedTimeout -= 1;
         dayTextTimeout -= 0.8;
         dayTimeout -= 1;
+        insideTimeout -= 1;
     }
 
     void Move(){
@@ -288,9 +295,9 @@ public class Player {
     }
 
 
-    public void draw(Graphics2D g2d){
+    public void draw(Graphics2D g2d) {
         g2d.setFont(ttfReal);
-        if(direction == 0){
+        if (direction == 0) {
             g2d.setColor(Color.RED);
             g2d.drawImage(charSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
             g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
@@ -299,7 +306,7 @@ public class Player {
             g2d.drawImage(charSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
             g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         }
-        if(menu){
+        if (menu) {
             g2d.setColor(Color.BLACK);
             g2d.drawImage(sleepSprite, (int) (50 * screenMultiplier), (int) (50 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
             g2d.drawImage(seedsSprite, (int) (50 * screenMultiplier), (int) (120 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
@@ -307,11 +314,19 @@ public class Player {
             g2d.drawString("Stored seeds: " + storedSeeds, (int) (1000 * screenMultiplier), (int) (90 * screenMultiplier));
             g2d.drawString("" + screenSizeY + "p", (int) (64 * screenMultiplier), (int) (229 * screenMultiplier));
         }
-        if(seedTextTimeout > 0){
+        if (seedTextTimeout > 0) {
+            g2d.setColor(Color.RED);
             g2d.drawString("You are out of seeds", (int) (400 * screenMultiplier), (int) (340 * screenMultiplier));
         }
-        if(dayTextTimeout > 0){
+        if (dayTextTimeout > 0) {
+            g2d.setColor(Color.RED);
             g2d.drawString("Go out and work before you sleep again", (int) (340 * screenMultiplier), (int) (340 * screenMultiplier));
+        }
+        if (seed > 0) {
+            if (insideTimeout > 0) {
+                g2d.setColor(Color.RED);
+                g2d.drawString("You can't plant here", (int) (340 * screenMultiplier), (int) (340 * screenMultiplier));
+            }
         }
         g2d.setColor(Color.BLACK);
         g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
