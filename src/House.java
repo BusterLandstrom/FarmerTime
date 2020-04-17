@@ -11,7 +11,9 @@ public class House {
     int width;
     int height;
 
+    /**/ //GamePanel object cast as gp
     GamePanel gp;
+    /**/
 
     public static Rectangle houseHitBox;
 

@@ -9,12 +9,17 @@ import java.io.IOException;
 
 public class Player {
 
+    /**/ //Screen resize variables
     public static double screenMultiplier = 1;
     public static int screenSizeX;
     public static int screenSizeY;
     boolean screenChange;
     boolean screenChangeReady = true;
+    /**/
+
+    /**/ //GamePanel object cast as gp
     GamePanel gp;
+    /**/
 
     String dayString;
     int day;
@@ -215,7 +220,6 @@ public class Player {
         charHitBox.y = (int) (y * screenMultiplier);
         charHitBox.width = (int) (width * screenMultiplier);
         charHitBox.height = (int) (height * screenMultiplier);
-        System.out.println(charHitBox.x);
 
     }
 
@@ -251,7 +255,7 @@ public class Player {
         g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
         if(direction == 0){
             g2d.setColor(Color.RED);
-            g2d.drawImage(charSprite, (int) ((x + (width * screenMultiplier) * screenMultiplier)), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
+            g2d.drawImage(charSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
             g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         } else {
             g2d.setColor(Color.RED);

@@ -6,7 +6,9 @@ import java.io.IOException;
 
 public class SpawnBlock {
 
+    /**/ //GamePanel object cast as gp
     GamePanel gp;
+    /**/
 
     int x;
     int y;
