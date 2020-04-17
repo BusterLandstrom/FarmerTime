@@ -28,7 +28,7 @@ public class Player {
     /**/
 
     String seedString;
-    int seed;
+    private int seed;
     double seedTextTimeout = 0;
     double seedTimeout = 0;
     int storedSeeds = 10;
@@ -81,6 +81,10 @@ public class Player {
 
     /**/ //Declaring the emptyButton sprite
     final BufferedImage emptySprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\empty.png"));
+    /**/
+
+    /**/ //Declaring the emptyButton sprite
+    final BufferedImage shadowSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\shadow.png"));
     /**/
 
 
@@ -297,14 +301,14 @@ public class Player {
 
     public void draw(Graphics2D g2d) {
         g2d.setFont(ttfReal);
+        g2d.setColor(Color.RED);
+        /**///Character hit box draw g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         if (direction == 0) {
-            g2d.setColor(Color.RED);
+            g2d.drawImage(shadowSprite,charHitBox.x, charHitBox.y, charHitBox.width, 57, null);
             g2d.drawImage(charSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
-            g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         } else {
-            g2d.setColor(Color.RED);
+            g2d.drawImage(shadowSprite,(int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), 57, null);
             g2d.drawImage(charSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
-            g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         }
         if (menu) {
             g2d.setColor(Color.BLACK);
