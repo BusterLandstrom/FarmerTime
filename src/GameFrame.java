@@ -1,4 +1,5 @@
-import java.awt.*;
+import java.awt.Color;
+import java.awt.FontFormatException;
 import java.io.IOException;
 
 public class GameFrame extends javax.swing.JFrame {
@@ -13,7 +14,6 @@ public class GameFrame extends javax.swing.JFrame {
         gp.setVisible(true);
         gp.setSize(this.getSize());
         this.add(gp);
-
         addKeyListener(new KeyPress(gp));
     }
     /**/

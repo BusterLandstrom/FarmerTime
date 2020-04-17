@@ -55,7 +55,7 @@ public class Player {
     /**/
 
     Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("G:\\FarmerTime\\Sprites\\FFFFORWA.TTF"));
-    Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 32);
+    Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 22);
 
     /**/ //X and Y speed of character
     double xs;
@@ -155,6 +155,7 @@ public class Player {
             canPlant = true;
             screenChangeReady = true;
         }
+
         seedTextTimeout -= 0.8;
         seedTimeout -= 1;
         dayTextTimeout -= 0.8;

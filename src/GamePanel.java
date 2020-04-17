@@ -21,7 +21,6 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
     /**/ //GamePanel constructor
     public GamePanel() throws IOException, FontFormatException {
 
-
         player = new Player(975,100,this);
         sp = new SpawnBlock(975,100,this);
         house = new House(975, 200,this);

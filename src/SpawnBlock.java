@@ -15,9 +15,6 @@ public class SpawnBlock {
     int width;
     int height;
 
-
-    Rectangle spawnHitBox;
-
     /**/ //Declaring the spawn sprite
     final BufferedImage spawnSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\start.png"));
     /**/

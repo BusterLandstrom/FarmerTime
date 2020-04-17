@@ -8,13 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="108f6edb-cdca-4ebe-94f5-304d04f489ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/SpawnBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/SpawnBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpawnBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpawnBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +94,8 @@
       <workItem from="1586942502397" duration="8592000" />
       <workItem from="1587038540903" duration="3962000" />
       <workItem from="1587075168370" duration="2574000" />
-      <workItem from="1587117675049" duration="23568000" />
+      <workItem from="1587117675049" duration="29431000" />
+      <workItem from="1587161095594" duration="611000" />
     </task>
     <servers />
   </component>
@@ -104,25 +111,25 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="620" y="260" key="FileChooserDialogImpl/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587143899442" />
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1587144780650">
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1587156424706">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587144780650" />
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587156424706" />
     <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1587144780650">
+    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1587156424705">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587144780650" />
+    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587156424705" />
     <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1587144780650">
+    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1587156424705">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587144780650" />
+    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587156424705" />
     <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1587144780650">
+    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1587156424706">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587144780650" />
+    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587156424706" />
     <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
     <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1587137483306">
       <screen x="0" y="0" width="1680" height="1010" />
@@ -144,10 +151,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="320" y="79" key="SettingsEditor/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1586945375340" />
-    <state x="536" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1587117675927">
+    <state x="536" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1587161109356">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="329" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587117675927" />
+    <state x="536" y="329" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587161109356" />
     <state x="496" y="233" key="run.anything.popup" timestamp="1587139113983">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
