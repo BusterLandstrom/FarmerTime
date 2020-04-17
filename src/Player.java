@@ -115,11 +115,12 @@ public class Player {
                 } else if (screenMultiplier == 2.5) {
                     screenMultiplier = 3;
                     screenChange = false;
+                } else if (screenMultiplier == 3) {
+                    screenMultiplier = 1;
+                    screenChange = false;
                 }
             }
         }
-
-        System.out.println(screenChangeReady);
 
         if(charHitBox.intersects(House.houseHitBox)){
             menu = true;
@@ -210,12 +211,11 @@ public class Player {
         x += xs;
         y += ys;
 
-        if(direction == 1) {
-            charHitBox.x = x;
-        } else if (direction == 0){
-            charHitBox.x = (int) (x +(width * screenMultiplier));
-        }
-        charHitBox.y = y;
+        charHitBox.x = (int) (x * screenMultiplier);
+        charHitBox.y = (int) (y * screenMultiplier);
+        charHitBox.width = (int) (width * screenMultiplier);
+        charHitBox.height = (int) (height * screenMultiplier);
+        System.out.println(charHitBox.x);
 
     }
 
@@ -251,12 +251,12 @@ public class Player {
         g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
         if(direction == 0){
             g2d.setColor(Color.RED);
-            g2d.drawImage(charSprite, (int) (x + (width * screenMultiplier)), (int)(y * screenMultiplier), (int) (-width * screenMultiplier), (int) (height * screenMultiplier), null);
-            g2d.drawRect(charHitBox.x, (int)(y * screenMultiplier), (int) (-width * screenMultiplier), (int) (height * screenMultiplier));
+            g2d.drawImage(charSprite, (int) ((x + (width * screenMultiplier) * screenMultiplier)), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
+            g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         } else {
             g2d.setColor(Color.RED);
-            g2d.drawImage(charSprite, x, (int) (y*screenMultiplier), (int) (width*screenMultiplier), (int) (height*screenMultiplier), null);
-            g2d.drawRect(charHitBox.x, (int)(y*screenMultiplier), (int) (width*screenMultiplier), (int) (height*screenMultiplier));
+            g2d.drawImage(charSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
+            g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         }
         if(menu){
             g2d.setColor(Color.BLACK);

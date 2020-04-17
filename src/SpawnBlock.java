@@ -13,6 +13,9 @@ public class SpawnBlock {
     int width;
     int height;
 
+
+    Rectangle spawnHitBox;
+
     /**/ //Declaring the spawn sprite
     final BufferedImage spawnSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\start.png"));
     /**/
@@ -27,6 +30,6 @@ public class SpawnBlock {
     }
 
     public void draw(Graphics2D g2d){
-        g2d.drawImage(spawnSprite, x, y, width, height, null);
+        g2d.drawImage(spawnSprite, (int) (x * Player.screenMultiplier), (int) (y * Player.screenMultiplier), (int) (width * Player.screenMultiplier), (int) (height * Player.screenMultiplier), null);
     }
 }
