@@ -4,7 +4,7 @@ This is a farmer game where you play a retired wizard.
 # Game Idea
 You will plant seeds and let the plants grow but with one twist you will be able to get powerups and use the powerups to get different plants and different 
 
-## Sprites
+# Sprites
 
 **Character Sprite**
 
@@ -23,6 +23,9 @@ You will plant seeds and let the plants grow but with one twist you will be able
 <img src="Sprites\icon-export.png" alt="IconSprite" width="300px" height="300px">
 
 # Credits
+
 Button sprites : <a href="https://adwitr.itch.io/button-asset-pack">Button Asset Pack</a> by <a href="https://adwitr.itch.io">Adwitr</a>
 
 Sprites made with <a href="https://www.aseprite.org/">Aseprite</a>
+
+Java IDE used <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA Ultimate</a>
