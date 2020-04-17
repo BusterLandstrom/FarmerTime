@@ -12,7 +12,7 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 **House Sprite**
 
-<img src="Sprites\house.png" alt="HouseSprite" width="300px" height="300px">
+<img src="Sprites\house.png" alt="HouseSprite" width="300px" height="600px">
 
 **StartGround Sprite**
 
@@ -20,7 +20,7 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 **Icon**
 
-<img src="Sprites\icon-export.png" alt="IconSprite" width="300px" height="600px">
+<img src="Sprites\icon-export.png" alt="IconSprite" width="300px" height="300px">
 
 # Credits
 Button sprites : <a href="https://adwitr.itch.io/button-asset-pack">Button Asset Pack</a> by <a href="https://adwitr.itch.io">Adwitr</a>
