@@ -72,6 +72,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         if(e.getKeyChar() == 's' || e.getKeyChar() == 'S'){
             player.keyDown = true;
         }
+        if(e.getKeyChar() == 'e' || e.getKeyChar() == 'E'){
+            player.keyE = true;
+        }
         if(e.getKeyCode() == 27){
             player.keyEsc = true;
         }
@@ -89,6 +92,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         }
         if(e.getKeyChar() == 's' || e.getKeyChar() == 'S'){
             player.keyDown = false;
+        }
+        if(e.getKeyChar() == 'e' || e.getKeyChar() == 'E'){
+            player.keyE = false;
         }
         if(e.getKeyCode() == 27){
             player.keyEsc = false;

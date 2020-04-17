@@ -21,8 +21,18 @@ public class Player {
     GamePanel gp;
     /**/
 
+    /**/ //Day initialization
     String dayString;
     int day;
+    double dayTextTimeout = 0;
+    double dayTimeout = 0;
+    /**/
+
+    String seedString;
+    int seed;
+    double seedTextTimeout = 0;
+    double seedTimeout = 0;
+    int storedSeeds = 10;
 
     /**/ //Character base variables
     int x;
@@ -37,6 +47,7 @@ public class Player {
     boolean keyRight;
     boolean keyDown;
     boolean keyEsc;
+    boolean keyE;
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
@@ -97,9 +108,14 @@ public class Player {
 
         Move();
 
+        if(keyE) {
+            plantSeed();
+        }
+
         ttfReal = ttfBase.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
 
         dayString = "Days: " + day;
+        seedString = "Seeds: " + seed;
 
         buttonClicks();
 
@@ -134,6 +150,10 @@ public class Player {
             nextDayReady = true;
             screenChangeReady = true;
         }
+        seedTextTimeout -= 0.8;
+        seedTimeout -= 1;
+        dayTextTimeout -= 0.8;
+        dayTimeout -= 1;
     }
 
     void Move(){
@@ -223,6 +243,17 @@ public class Player {
 
     }
 
+    void plantSeed(){
+        if(seedTimeout < 0) {
+            if (seed >= 1) {
+                seed -= 1;
+                seedTimeout = 10;
+            } else {
+                seedTextTimeout = 10;
+            }
+        }
+    }
+
     void buttonClicks(){
         gp.addMouseListener(new MouseAdapter() {
             @Override
@@ -232,10 +263,17 @@ public class Player {
                         if(nextDayReady) {
                             day = day + 1;
                             nextDayReady = false;
+                            storedSeeds += 2;
+                            dayTimeout = 10;
+                        } else{
+                            if(dayTimeout <= 0) {
+                                dayTextTimeout = 10;
+                            }
                         }
                     }
                     if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (120 * screenMultiplier) && e.getY() <= (int) (170 * screenMultiplier)) {
-                        System.out.println("Seeds pressed");
+                        seed += storedSeeds;
+                        storedSeeds -= storedSeeds;
                     }
 
                     if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (190 * screenMultiplier) && e.getY() <= (int) (240 * screenMultiplier)) {
@@ -252,7 +290,6 @@ public class Player {
 
     public void draw(Graphics2D g2d){
         g2d.setFont(ttfReal);
-        g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
         if(direction == 0){
             g2d.setColor(Color.RED);
             g2d.drawImage(charSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
@@ -267,8 +304,17 @@ public class Player {
             g2d.drawImage(sleepSprite, (int) (50 * screenMultiplier), (int) (50 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
             g2d.drawImage(seedsSprite, (int) (50 * screenMultiplier), (int) (120 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
             g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (190 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
-
+            g2d.drawString("Stored seeds: " + storedSeeds, (int) (1000 * screenMultiplier), (int) (90 * screenMultiplier));
             g2d.drawString("" + screenSizeY + "p", (int) (64 * screenMultiplier), (int) (229 * screenMultiplier));
         }
+        if(seedTextTimeout > 0){
+            g2d.drawString("You are out of seeds", (int) (400 * screenMultiplier), (int) (340 * screenMultiplier));
+        }
+        if(dayTextTimeout > 0){
+            g2d.drawString("Go out and work before you sleep again", (int) (340 * screenMultiplier), (int) (340 * screenMultiplier));
+        }
+        g2d.setColor(Color.BLACK);
+        g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
+        g2d.drawString(seedString, (int) (1000 * screenMultiplier), (int) (55 * screenMultiplier));
     }
 }
