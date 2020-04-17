@@ -1,15 +1,19 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class Player {
 
+    public static double screenMultiplier = 1;
+    public static int screenSizeX;
+    public static int screenSizeY;
+    boolean screenChange;
+    boolean screenChangeReady = true;
     GamePanel gp;
 
     String dayString;
@@ -27,12 +31,11 @@ public class Player {
     boolean keyLeft;
     boolean keyRight;
     boolean keyDown;
+    boolean keyEsc;
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
     /**/
-
-    House house;
 
     Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("G:\\FarmerTime\\Sprites\\FFFFORWA.TTF"));
     Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 32);
@@ -42,6 +45,8 @@ public class Player {
     double ys;
     int maxSpeed = 8;
     /**/
+
+    KeyEvent e;
 
     /**/ //Setting up character hit box
     Rectangle charHitBox;
@@ -57,6 +62,10 @@ public class Player {
 
     /**/ //Declaring the seeds sprite
     final BufferedImage seedsSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\seeds.png"));
+    /**/
+
+    /**/ //Declaring the emptyButton sprite
+    final BufferedImage emptySprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\empty.png"));
     /**/
 
 
@@ -83,19 +92,41 @@ public class Player {
 
         Move();
 
+        ttfReal = ttfBase.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
+
         dayString = "Days: " + day;
 
         buttonClicks();
 
-        System.out.println(day);
+        screenSizeX = (int) (1280 * screenMultiplier);
+        screenSizeY = (int) (720 * screenMultiplier);
 
+        if(screenChange) {
+            if(!screenChangeReady) {
+                if (screenMultiplier == 1) {
+                    screenMultiplier = 1.5;
+                    screenChange = false;
+                } else if (screenMultiplier == 1.5) {
+                    screenMultiplier = 2;
+                    screenChange = false;
+                } else if (screenMultiplier == 2) {
+                    screenMultiplier = 2.5;
+                    screenChange = false;
+                } else if (screenMultiplier == 2.5) {
+                    screenMultiplier = 3;
+                    screenChange = false;
+                }
+            }
+        }
 
-        if(charHitBox.intersects(house.houseHitBox)){
+        System.out.println(screenChangeReady);
+
+        if(charHitBox.intersects(House.houseHitBox)){
             menu = true;
-
-        } else{
+        } else if (!(charHitBox.intersects(House.houseHitBox))){
             menu = false;
             nextDayReady = true;
+            screenChangeReady = true;
         }
     }
 
@@ -120,7 +151,7 @@ public class Player {
         }
 
 
-        if(y >= 634){
+        if(y >= (634 * screenMultiplier)){
             charHitBox.y -= ys;
             charHitBox.y -= Math.signum(ys);
             ys = 0;
@@ -161,7 +192,7 @@ public class Player {
             ys = -maxSpeed;
         }
 
-        if (x >= 1216) {
+        if (x >= (1216 * screenMultiplier)) {
             charHitBox.x -= xs;
             charHitBox.x -= Math.signum(xs);
             xs = 0;
@@ -179,7 +210,11 @@ public class Player {
         x += xs;
         y += ys;
 
-        charHitBox.x = x;
+        if(direction == 1) {
+            charHitBox.x = x;
+        } else if (direction == 0){
+            charHitBox.x = (int) (x +(width * screenMultiplier));
+        }
         charHitBox.y = y;
 
     }
@@ -189,14 +224,21 @@ public class Player {
             @Override
             public void mousePressed(MouseEvent e) {
                 if(menu) {
-                    if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 50 && e.getY() <= 100) {
+                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (50 * screenMultiplier) && e.getY() <= (int) (100 * screenMultiplier)) {
                         if(nextDayReady) {
                             day = day + 1;
                             nextDayReady = false;
                         }
                     }
-                    if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 120 && e.getY() <= 170) {
+                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (120 * screenMultiplier) && e.getY() <= (int) (170 * screenMultiplier)) {
                         System.out.println("Seeds pressed");
+                    }
+
+                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (190 * screenMultiplier) && e.getY() <= (int) (240 * screenMultiplier)) {
+                        if(screenChangeReady = true) {
+                            screenChange = true;
+                            screenChangeReady = false;
+                        }
                     }
                 }
             }
@@ -206,19 +248,23 @@ public class Player {
 
     public void draw(Graphics2D g2d){
         g2d.setFont(ttfReal);
-        g2d.drawString(dayString, 530, 55);
+        g2d.drawString(dayString, (int) (530 * screenMultiplier), (int) (55 * screenMultiplier));
         if(direction == 0){
             g2d.setColor(Color.RED);
-            g2d.drawImage(charSprite, x + width, y, -width, height, null);
-            g2d.drawRect(x,y,width,height);
+            g2d.drawImage(charSprite, (int) (x + (width * screenMultiplier)), (int)(y * screenMultiplier), (int) (-width * screenMultiplier), (int) (height * screenMultiplier), null);
+            g2d.drawRect(charHitBox.x, (int)(y * screenMultiplier), (int) (-width * screenMultiplier), (int) (height * screenMultiplier));
         } else {
             g2d.setColor(Color.RED);
-            g2d.drawImage(charSprite, x, y, width, height, null);
-            g2d.drawRect(x, y, width, height);
+            g2d.drawImage(charSprite, x, (int) (y*screenMultiplier), (int) (width*screenMultiplier), (int) (height*screenMultiplier), null);
+            g2d.drawRect(charHitBox.x, (int)(y*screenMultiplier), (int) (width*screenMultiplier), (int) (height*screenMultiplier));
         }
         if(menu){
-            g2d.drawImage(sleepSprite, 50, 50, 100, 50, null);
-            g2d.drawImage(seedsSprite, 50, 120, 100, 50, null);
+            g2d.setColor(Color.BLACK);
+            g2d.drawImage(sleepSprite, (int) (50 * screenMultiplier), (int) (50 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+            g2d.drawImage(seedsSprite, (int) (50 * screenMultiplier), (int) (120 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+            g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (190 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+
+            g2d.drawString("" + screenSizeY + "p", (int) (64 * screenMultiplier), (int) (229 * screenMultiplier));
         }
     }
 }

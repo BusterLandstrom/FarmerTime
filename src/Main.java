@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.awt.Toolkit.getDefaultToolkit;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -10,14 +12,25 @@ public class Main {
     public static void main(String[] args) throws IOException, FontFormatException {
         GameFrame gf = new GameFrame();
 
-        gf.setSize(1280, 720);
+        /**/ //Declaring Timer object as gameTimer
+        Timer gameTimer;
+        /**/
+
+        gameTimer = new Timer();
+        gameTimer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                gf.setSize(Player.screenSizeX, Player.screenSizeY);
+            }
+        }, 0, 17);
 
         Dimension screenSize = getDefaultToolkit().getScreenSize();
         gf.setLocation((int)(screenSize.getWidth()/2 - gf.getSize().getWidth()/2), (int)(screenSize.getHeight()/2 - gf.getSize().getHeight()/2));
 
         gf.setResizable(false);
         gf.setVisible(true);
-        gf.setTitle("Throwdown");
+        gf.setTitle("FarmerTime");
 
         gf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 

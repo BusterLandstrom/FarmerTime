@@ -28,10 +28,17 @@ public class House {
 
         width = 200;
         height = 400;
-        houseHitBox = new Rectangle(x + 50 ,y + 50,width - 50,height - 50);
+        houseHitBox = new Rectangle((int) (x * Player.screenMultiplier),(int) (y * Player.screenMultiplier),(int) (width * Player.screenMultiplier),(int) (height * Player.screenMultiplier));
+    }
+
+    public void set(){
+        houseHitBox.x = (int) (x * Player.screenMultiplier);
+        houseHitBox.y = (int) (y * Player.screenMultiplier);
+        houseHitBox.width = (int) (width * Player.screenMultiplier);
+        houseHitBox.height = (int) (height * Player.screenMultiplier);
     }
 
     public void draw(Graphics2D g2d){
-        g2d.drawImage(houseSprite, x, y, width, height,null);
+        g2d.drawImage(houseSprite, (int) (x * Player.screenMultiplier), (int) (y * Player.screenMultiplier), (int) (width * Player.screenMultiplier), (int) (height * Player.screenMultiplier),null);
     }
 }

@@ -32,6 +32,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
             @Override
             public void run() {
+                house.set();
                 player.set();
                 repaint();
             }
@@ -70,6 +71,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         if(e.getKeyChar() == 's' || e.getKeyChar() == 'S'){
             player.keyDown = true;
         }
+        if(e.getKeyCode() == 27){
+            player.keyEsc = true;
+        }
     }
 
     public void keyReleased(KeyEvent e) {
@@ -84,6 +88,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         }
         if(e.getKeyChar() == 's' || e.getKeyChar() == 'S'){
             player.keyDown = false;
+        }
+        if(e.getKeyCode() == 27){
+            player.keyEsc = false;
         }
     }
     /**/
