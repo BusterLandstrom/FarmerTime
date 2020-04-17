@@ -1,5 +1,8 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +29,7 @@ public class Main {
             }
         }, 0, 17);
 
+        gf.setIconImage(Toolkit.getDefaultToolkit().getImage("G:\\FarmerTime\\Sprites\\icon.png"));
         Dimension screenSize = getDefaultToolkit().getScreenSize();
         gf.setLocation((int)(screenSize.getWidth()/2 - gf.getSize().getWidth()/2), (int)(screenSize.getHeight()/2 - gf.getSize().getHeight()/2));
 
