@@ -8,19 +8,19 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 **Character Sprite**
 
-<img src="Sprites\player.png" alt="CharacterSprite" width="300px" height="300px">
+<img src="Sprites\player.png" alt="CharacterSprite" width="200px" height="200px">
 
 **House Sprite**
 
-<img src="Sprites\house.png" alt="HouseSprite" width="300px" height="600px">
+<img src="Sprites\house.png" alt="HouseSprite" width="200px" height="400px">
 
 **StartGround Sprite**
 
-<img src="Sprites\start.png" alt="StartGroundSprite" width="300px" height="300px">
+<img src="Sprites\start.png" alt="StartGroundSprite" width="200px" height="200px">
 
 **Icon**
 
-<img src="Sprites\icon-export.png" alt="IconSprite" width="300px" height="300px">
+<img src="Sprites\icon-export.png" alt="IconSprite" width="200px" height="200px">
 
 # Credits
 
