@@ -34,6 +34,8 @@ public class Player {
     int storedSeeds = 10;
     boolean canPlant = true;
     double insideTimeout = 0;
+    double idleTimeout = 9;
+    double walkingTimeout = 9;
 
     /**/ //Character base variables
     int x;
@@ -52,6 +54,7 @@ public class Player {
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
+    boolean walking = false;
     /**/
 
     Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("G:\\FarmerTime\\Sprites\\FFFFORWA.TTF"));
@@ -83,8 +86,38 @@ public class Player {
     final BufferedImage emptySprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\empty.png"));
     /**/
 
-    /**/ //Declaring the emptyButton sprite
+    /**/ //Declaring the shadow sprite
     final BufferedImage shadowSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\shadow.png"));
+    /**/
+
+    /**/ //Declaring the playerIdle sprite array
+    final BufferedImage[] playerIdleSprite = {
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle1.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle2.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle3.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle4.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle5.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle6.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle7.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle8.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle9.png"))
+    };
+    /**/
+
+    /**/ //Declaring the playerWalking sprite array
+    final BufferedImage[] playerWalkingSprite = {
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run1.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run2.png")),
+            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run3.png"))
+    };
+    /**/
+
+    /**/ //Declaring the idle player sprite
+    BufferedImage idleCharSprite = playerIdleSprite[0];
+    /**/
+
+    /**/ //Declaring the walking player sprite
+    BufferedImage walkingCharSprite = playerWalkingSprite[0];
     /**/
 
 
@@ -159,31 +192,85 @@ public class Player {
             canPlant = true;
             screenChangeReady = true;
         }
+        if(!walking){
+            walkingTimeout = 9;
+            if(idleTimeout > 8) {
+                idleCharSprite = playerIdleSprite[0];
+            } else if(idleTimeout > 7) {
+                idleCharSprite = playerIdleSprite[1];
+            } else if(idleTimeout > 6) {
+                idleCharSprite = playerIdleSprite[2];
+            } else if(idleTimeout > 5) {
+                idleCharSprite = playerIdleSprite[3];
+            } else if(idleTimeout > 4) {
+                idleCharSprite = playerIdleSprite[4];
+            } else if(idleTimeout > 3) {
+                idleCharSprite = playerIdleSprite[5];
+            } else if(idleTimeout > 2) {
+                idleCharSprite = playerIdleSprite[6];
+            } else if(idleTimeout > 1) {
+                idleCharSprite = playerIdleSprite[7];
+            } else if(idleTimeout > 0) {
+                idleCharSprite = playerIdleSprite[8];
+            }
+        } else{
+            idleTimeout = 9;
+            if(walkingTimeout > 8) {
+                walkingCharSprite = playerIdleSprite[0];
+            } else if(walkingTimeout > 7) {
+                walkingCharSprite = playerIdleSprite[1];
+            } else if(walkingTimeout > 6) {
+                walkingCharSprite = playerIdleSprite[2];
+            } else if(walkingTimeout > 3){
+                walkingTimeout = 7.8;
+            }
+        }
 
         seedTextTimeout -= 0.8;
         seedTimeout -= 1;
         dayTextTimeout -= 0.8;
         dayTimeout -= 1;
         insideTimeout -= 1;
+        if(idleTimeout > 0) {
+            idleTimeout -= 0.08;
+        } else {
+            idleTimeout = 9;
+        }
+        walkingTimeout -= 0.08;
+
     }
 
     void Move(){
 
         if (keyLeft && keyRight || !keyLeft && !keyRight) {
             xs *= 0.8;
-        } else if (keyLeft && !keyRight) {
+            if (keyUp && keyDown || !keyUp && !keyDown) {
+                walking = false;
+            } else {
+                walking = true;
+            }
+        } else if (keyLeft) {
+            walking = true;
             xs--;
             direction = 0;
-        } else if (!keyLeft && keyRight) {
+        } else if (keyRight) {
+            walking = true;
             xs++;
             direction = 1;
         }
 
         if (keyUp && keyDown || !keyUp && !keyDown) {
             ys *= 0.8;
-        } else if (keyUp && !keyDown) {
+            if (keyLeft && keyRight || !keyLeft && !keyRight) {
+                walking = false;
+            } else {
+                walking = true;
+            }
+        } else if (keyUp) {
+            walking = true;
             ys--;
-        } else if (!keyUp && keyDown) {
+        } else if (keyDown) {
+            walking = true;
             ys++;
         }
 
@@ -305,10 +392,19 @@ public class Player {
         /**///Character hit box draw g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         if (direction == 0) {
             g2d.drawImage(shadowSprite,charHitBox.x, charHitBox.y, charHitBox.width, 57, null);
-            g2d.drawImage(charSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
+            if(walking) {
+                g2d.drawImage(walkingCharSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
+            } else if (!walking){
+                g2d.drawImage(idleCharSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
+            }
         } else {
             g2d.drawImage(shadowSprite,(int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), 57, null);
-            g2d.drawImage(charSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
+            if(walking) {
+                g2d.drawImage(walkingCharSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
+            } else if (!walking) {
+                g2d.drawImage(idleCharSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
+
+            }
         }
         if (menu) {
             g2d.setColor(Color.BLACK);
