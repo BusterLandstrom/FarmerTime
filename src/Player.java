@@ -141,6 +141,15 @@ public class Player {
 
     public void set() {
 
+        if(DayNight.r <= 0 && DayNight.g <= 0 && DayNight.b <= 0){
+            day += 1;
+            DayNight.r = 51;
+            DayNight.g = 255;
+            DayNight.b = 255;
+            DayNight.current = 0;
+
+        }
+
         Move();
 
         if(keyE) {
@@ -374,7 +383,7 @@ public class Player {
                 if(menu) {
                     if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (50 * screenMultiplier) && e.getY() <= (int) (100 * screenMultiplier)) {
                         if(nextDayReady) {
-                            day = day + 1;
+                            day +=  1;
                             nextDayReady = false;
                             storedSeeds += 2;
                             dayTimeout = 10;
