@@ -1,9 +1,10 @@
+import java.io.File;
+import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Player {
@@ -119,6 +120,8 @@ public class Player {
     /**/ //Declaring the walking player sprite
     BufferedImage walkingCharSprite = playerWalkingSprite[0];
     /**/
+
+    String musicSrc = "G:\\FarmerTime\\Sounds\\plant.wav";
 
 
 
@@ -345,10 +348,26 @@ public class Player {
         if(seedTimeout < 0) {
             if (seed >= 1) {
                 seed -= 1;
+                play(musicSrc);
                 seedTimeout = 10;
             } else {
                 seedTextTimeout = 10;
             }
+        }
+    }
+
+    public static void play(String filename)
+    {
+        try
+        {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File(filename)));
+            clip.start();
+            clip.drain();
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
         }
     }
 
