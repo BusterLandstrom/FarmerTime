@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import static java.awt.Toolkit.getDefaultToolkit;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main {

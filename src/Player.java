@@ -58,8 +58,8 @@ public class Player {
     boolean walking = false;
     /**/
 
-    Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites\\FFFFORWA.TTF"));
-    Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 22);
+    Font base = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites\\FFFFORWA.TTF"));
+    Font real = base.deriveFont(Font.PLAIN, 22);
 
     /**/ //X and Y speed of character
     double xs;
@@ -151,7 +151,7 @@ public class Player {
             }
         }
 
-        ttfReal = ttfBase.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
+        real = base.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
 
         dayString = "Days: " + day;
         seedString = "Seeds: " + seed;
@@ -402,7 +402,7 @@ public class Player {
 
 
     public void draw(Graphics2D g2d) {
-        g2d.setFont(ttfReal);
+        g2d.setFont(real);
         g2d.setColor(Color.RED);
         /**///Character hit box draw g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
         if (direction == 0) {

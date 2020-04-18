@@ -8,8 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="108f6edb-cdca-4ebe-94f5-304d04f489ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,8 @@
       <workItem from="1587038540903" duration="3962000" />
       <workItem from="1587075168370" duration="2574000" />
       <workItem from="1587117675049" duration="29431000" />
-      <workItem from="1587161095594" duration="12705000" />
+      <workItem from="1587161095594" duration="12969000" />
+      <workItem from="1587210901152" duration="1201000" />
     </task>
     <servers />
   </component>
@@ -152,10 +153,10 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="320" y="79" key="SettingsEditor/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1586945375340" />
-    <state x="536" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1587161109356">
+    <state x="536" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1587210900563">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="536" y="329" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587161109356" />
+    <state x="536" y="329" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587210900563" />
     <state x="582" y="124" key="refactoring.ChangeSignatureDialog" timestamp="1587168365713">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
