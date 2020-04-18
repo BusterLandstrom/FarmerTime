@@ -25,10 +25,6 @@ public class DayNight {
 
         GameFrame.bgc = new Color((int)r, (int)g,(int) b);
 
-        System.out.println(r);
-        System.out.println(g);
-        System.out.println(b);
-
         r -= 0.03;
         g -= 0.03;
         b -= 0.03;
