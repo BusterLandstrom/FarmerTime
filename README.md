@@ -10,9 +10,13 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 <img src="Sprites\player.png" alt="CharacterSprite" width="200px" height="200px">
 
-**Character Animation Sprite**
+**Character Idle Animation Sprite**
 
-<img src="Sprites\player.gif" alt="CharacterAnimSprite" width="200px" height="200px">
+<img src="Sprites\player_idle.gif" alt="CharacterIdleAnimSprite" width="200px" height="200px">
+
+**Character Idle Animation Sprite**
+
+<img src="Sprites\player_run.gif" alt="CharacterRunAnimSprite" width="200px" height="200px">
 
 **House Sprite**
 
