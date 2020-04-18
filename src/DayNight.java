@@ -3,21 +3,16 @@ import java.io.IOException;
 
 public class DayNight {
 
-    public static double current;
-
 
     public static double r = 204;
     public static double g = 255;
     public static double b = 255;
 
 
-    public DayNight(double current) throws IOException {
-        this.current = current;
+    public DayNight() throws IOException {
     }
 
     void set(){
-        current += 0.08;
-
         if(r <= 0){
             r = 0;
         }

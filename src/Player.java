@@ -146,7 +146,6 @@ public class Player {
             DayNight.r = 51;
             DayNight.g = 255;
             DayNight.b = 255;
-            DayNight.current = 0;
 
         }
 

@@ -28,7 +28,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         player = new Player(975,100,this);
         sp = new SpawnBlock(975,100,this);
         house = new House(975, 200,this);
-        dayNight = new DayNight(0.0);
+        dayNight = new DayNight();
 
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
