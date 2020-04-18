@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import static java.awt.Toolkit.getDefaultToolkit;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main {
 
@@ -32,7 +33,7 @@ public class Main {
         gf.setVisible(true);
         gf.setTitle("FarmerTime");
 
-        gf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        gf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
     /**/
