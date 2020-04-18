@@ -71,10 +71,6 @@ public class Player {
     Rectangle charHitBox;
     /**/
 
-    /**/ //Declaring the player sprite
-    final BufferedImage charSprite = ImageIO.read(new File("Sprites\\player.png"));
-    /**/
-
     /**/ //Declaring the sleep sprite
     final BufferedImage sleepSprite = ImageIO.read(new File("Sprites\\sleep.png"));
     /**/
