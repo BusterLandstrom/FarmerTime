@@ -121,7 +121,7 @@ public class Player {
     BufferedImage walkingCharSprite = playerWalkingSprite[0];
     /**/
 
-    String musicSrc = "G:\\FarmerTime\\Sounds\\plant.wav";
+    String plantingSrc = "G:\\FarmerTime\\Sounds\\plant.wav";
 
 
 
@@ -348,7 +348,7 @@ public class Player {
         if(seedTimeout < 0) {
             if (seed >= 1) {
                 seed -= 1;
-                play(musicSrc);
+                play(plantingSrc);
                 seedTimeout = 10;
             } else {
                 seedTextTimeout = 10;
