@@ -58,7 +58,7 @@ public class Player {
     boolean walking = false;
     /**/
 
-    Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("G:\\FarmerTime\\Sprites\\FFFFORWA.TTF"));
+    Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, new File("Sprites\\FFFFORWA.TTF"));
     Font ttfReal = ttfBase.deriveFont(Font.PLAIN, 22);
 
     /**/ //X and Y speed of character
@@ -72,44 +72,44 @@ public class Player {
     /**/
 
     /**/ //Declaring the player sprite
-    final BufferedImage charSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player.png"));
+    final BufferedImage charSprite = ImageIO.read(new File("Sprites\\player.png"));
     /**/
 
     /**/ //Declaring the sleep sprite
-    final BufferedImage sleepSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\sleep.png"));
+    final BufferedImage sleepSprite = ImageIO.read(new File("Sprites\\sleep.png"));
     /**/
 
     /**/ //Declaring the seeds sprite
-    final BufferedImage seedsSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\seeds.png"));
+    final BufferedImage seedsSprite = ImageIO.read(new File("Sprites\\seeds.png"));
     /**/
 
     /**/ //Declaring the emptyButton sprite
-    final BufferedImage emptySprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\empty.png"));
+    final BufferedImage emptySprite = ImageIO.read(new File("Sprites\\empty.png"));
     /**/
 
     /**/ //Declaring the shadow sprite
-    final BufferedImage shadowSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\shadow.png"));
+    final BufferedImage shadowSprite = ImageIO.read(new File("Sprites\\shadow.png"));
     /**/
 
     /**/ //Declaring the playerIdle sprite array
     final BufferedImage[] playerIdleSprite = {
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle1.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle2.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle3.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle4.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle5.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle6.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle7.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle8.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_idle\\player_idle9.png"))
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle1.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle2.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle3.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle4.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle5.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle6.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle7.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle8.png")),
+            ImageIO.read(new File("Sprites\\player_idle\\player_idle9.png"))
     };
     /**/
 
     /**/ //Declaring the playerWalking sprite array
     final BufferedImage[] playerWalkingSprite = {
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run1.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run2.png")),
-            ImageIO.read(new File("G:\\FarmerTime\\Sprites\\player_run\\player_run3.png"))
+            ImageIO.read(new File("Sprites\\player_run\\player_run1.png")),
+            ImageIO.read(new File("Sprites\\player_run\\player_run2.png")),
+            ImageIO.read(new File("Sprites\\player_run\\player_run3.png"))
     };
     /**/
 
@@ -121,7 +121,7 @@ public class Player {
     BufferedImage walkingCharSprite = playerWalkingSprite[0];
     /**/
 
-    String plantingSrc = "G:\\FarmerTime\\Sounds\\plant.wav";
+    String plantingSrc = "Sounds\\plant.wav";
 
 
 

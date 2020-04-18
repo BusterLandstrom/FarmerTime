@@ -18,7 +18,7 @@ public class House {
     public static Rectangle houseHitBox;
 
     /**/ //Declaring the house sprite
-    final BufferedImage houseSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\house.png"));
+    final BufferedImage houseSprite = ImageIO.read(new File("Sprites\\house.png"));
     /**/
 
     public House (int x, int y, GamePanel gp) throws IOException{

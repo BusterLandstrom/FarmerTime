@@ -16,7 +16,7 @@ public class SpawnBlock {
     int height;
 
     /**/ //Declaring the spawn sprite
-    final BufferedImage spawnSprite = ImageIO.read(new File("G:\\FarmerTime\\Sprites\\start.png"));
+    final BufferedImage spawnSprite = ImageIO.read(new File("Sprites\\start.png"));
     /**/
 
     public SpawnBlock(int x, int y, GamePanel gp) throws IOException {

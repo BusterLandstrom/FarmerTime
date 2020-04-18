@@ -24,7 +24,7 @@ public class Main {
             }
         }, 0, 17);
 
-        gf.setIconImage(Toolkit.getDefaultToolkit().getImage("G:\\FarmerTime\\Sprites\\icon-export.png"));
+        gf.setIconImage(Toolkit.getDefaultToolkit().getImage("Sprites\\icon-export.png"));
         Dimension screenSize = getDefaultToolkit().getScreenSize();
         gf.setLocation((screenSize.width/6 - gf.getSize().width/6), (screenSize.height/6 - gf.getSize().height/6));
 
