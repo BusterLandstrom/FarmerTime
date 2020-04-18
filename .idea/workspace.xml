@@ -8,12 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="108f6edb-cdca-4ebe-94f5-304d04f489ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/House.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpawnBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpawnBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +35,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="farmertime" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../slutprojekt/javaPrgrmDir" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -52,11 +52,12 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\FarmerTime\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\FarmerTime\Sprites" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\FarmerTime\out\artifacts" />
+      <recent name="G:\FarmerTime\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -88,7 +89,7 @@
       <workItem from="1587038540903" duration="3962000" />
       <workItem from="1587075168370" duration="2574000" />
       <workItem from="1587117675049" duration="29431000" />
-      <workItem from="1587161095594" duration="9328000" />
+      <workItem from="1587161095594" duration="10135000" />
     </task>
     <servers />
   </component>
@@ -104,25 +105,25 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="620" y="260" key="FileChooserDialogImpl/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587143899442" />
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1587173121648">
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1587173715174">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173121648" />
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173715174" />
     <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1587173121648">
+    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1587173715174">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173121648" />
+    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173715174" />
     <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1587173121647">
+    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1587173715174">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173121647" />
+    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173715174" />
     <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
-    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1587173121648">
+    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1587173715174">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173121648" />
+    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/1680.24.1920.1040@0.0.1680.1010" timestamp="1587173715174" />
     <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1587139745230" />
     <state width="1637" height="336" key="GridCell.Tab.1.bottom" timestamp="1587137483306">
       <screen x="0" y="0" width="1680" height="1010" />
