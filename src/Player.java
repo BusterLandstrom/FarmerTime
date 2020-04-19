@@ -126,8 +126,8 @@ public class Player {
     public Player(int x, int y, GamePanel gp) throws IOException, FontFormatException {
         /**/ //Setting all variables same as parent variable
         this.gp = gp;
-        this.x = x;
-        this.y = y;
+        Player.x = x;
+        Player.y = y;
         /**/
 
 
@@ -144,7 +144,7 @@ public class Player {
 
         if(DayNight.r <= 0 && DayNight.g <= 0 && DayNight.b <= 0){
             day += 1;
-            DayNight.r = 51;
+            DayNight.r = 204;
             DayNight.g = 255;
             DayNight.b = 255;
 
@@ -211,6 +211,8 @@ public class Player {
             canPlant = 1;
             screenChangeReady = true;
         }
+
+        /**/ //Animation for walking and idle
         if(!walking){
             walkingTimeout = 9;
             if(idleTimeout > 8) {
@@ -244,6 +246,7 @@ public class Player {
                 walkingTimeout = 7.8;
             }
         }
+        /**/
 
         seedTextTimeout -= 0.8;
         seedTimeout -= 1;
@@ -253,7 +256,7 @@ public class Player {
         if(idleTimeout > 0) {
             idleTimeout -= 0.08;
         } else {
-            idleTimeout = 9;
+                idleTimeout = 9;
         }
         walkingTimeout -= 0.08;
 

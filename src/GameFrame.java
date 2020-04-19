@@ -11,8 +11,6 @@ public class GameFrame extends javax.swing.JFrame {
     /**/ //GameFrame constructor
     public GameFrame() throws IOException, FontFormatException {
 
-
-
         GamePanel gp = new GamePanel();
 
         /**/ //Declaring Timer object as gameTimer

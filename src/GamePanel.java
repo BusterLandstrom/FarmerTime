@@ -1,5 +1,3 @@
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +20,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
     Farm farm;
 
+    FarmSquares farmSquares;
+
     /**/ //Declaring Timer object as gameTimer
     Timer gameTimer;
     /**/
@@ -35,6 +35,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         dayNight = new DayNight();
         planting = new Planting();
         farm = new Farm();
+        farmSquares = new FarmSquares();
 
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -46,7 +47,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
                 player.set();
                 planting.set();
                 dayNight.set();
-                //farm.set();
+                farmSquares.set();
                 repaint();
             }
         }, 0, 17);
@@ -62,6 +63,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         sp.draw(g2d);
         planting.draw(g2d);
         farm.draw(g2d);
+        farmSquares.draw(g2d);
         player.draw(g2d);
         house.draw(g2d);
     }

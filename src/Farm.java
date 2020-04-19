@@ -4,8 +4,6 @@ public class Farm {
 
     int squareWidth;
     int squareHeight;
-    int squareX;
-    int squareY;
 
     int x;
     int y;
@@ -16,12 +14,11 @@ public class Farm {
 
     public Farm(){
 
-
         squareWidth = 50;
         squareHeight = 50;
 
-        x = 100;
-        y = 100;
+        x = 370;
+        y = 170;
         width = 400;
         height = 400;
         farmHitBox = new Rectangle(x, y, width, height);

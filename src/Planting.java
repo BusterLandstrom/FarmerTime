@@ -1,5 +1,5 @@
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class Planting {
     int y = 0;
     int size = 50;
 
-    int plantTime = -1;
+    static int plantTime = -1;
 
     ArrayList<Integer> xArray = new ArrayList<>();
     ArrayList<Integer> yArray = new ArrayList<>();
@@ -23,8 +23,6 @@ public class Planting {
         xArray.add(0);
         yArray.add(0);
 
-
-
     }
 
     void set(){
@@ -32,7 +30,7 @@ public class Planting {
         if(Player.charHitBox.intersects(Farm.farmHitBox)){
             if(Player.canPlant == 1){
                 if (Player.isPlanting == 1) {
-                    if (Player.seed > 0) {
+                    if (Player.seed > -1) {
                        x = Player.x;
                        y = Player.y;
                        size = 50;

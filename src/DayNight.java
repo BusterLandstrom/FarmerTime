@@ -1,5 +1,4 @@
-import java.awt.*;
-import java.io.IOException;
+import java.awt.Color;
 
 public class DayNight {
 
@@ -9,10 +8,11 @@ public class DayNight {
     public static double b = 255;
 
 
-    public DayNight() throws IOException {
+    public DayNight() {
     }
 
     void set(){
+
         if(r <= 0){
             r = 0;
         }
@@ -23,7 +23,7 @@ public class DayNight {
             b = 0;
         }
 
-        GameFrame.bgc = new Color((int)r, (int)g,(int) b);
+        GameFrame.bgc = new Color((int)r, (int)g, (int)b);
 
         r -= 0.03;
         g -= 0.03;
