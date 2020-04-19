@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 public class Player {
 
@@ -16,6 +17,9 @@ public class Player {
     boolean screenChange;
     boolean screenChangeReady = true;
     /**/
+
+    static int screenX;
+    static int screenY;
 
     /**/ //GamePanel object cast as gp
     GamePanel gp;
@@ -53,6 +57,9 @@ public class Player {
     boolean keyDown;
     boolean keyEsc;
     boolean keyE;
+    boolean keyB;
+    int shake;
+    double shakeTimer = 0;
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
@@ -141,6 +148,20 @@ public class Player {
 
 
     public void set() {
+
+        if(shakeTimer < 0){
+            shake = 0;
+        } else {
+            screenX = new Random().nextInt(3) - 2;
+            screenY = new Random().nextInt(3) - 2;
+        }
+
+        if(shake == 0){
+            screenY = 0;
+            screenX = 0;
+        }
+
+        shakeTimer -= 0.8;
 
         if(DayNight.r <= 0 && DayNight.g <= 0 && DayNight.b <= 0){
             day += 1;
@@ -370,6 +391,7 @@ public class Player {
                 isPlanting = 1;
                 play(plantingSrc);
                 seedTimeout = 10;
+                shake();
             } else {
                 isPlanting = 0;
                 seedTextTimeout = 10;
@@ -425,6 +447,11 @@ public class Player {
                 }
             }
         });
+    }
+
+    void shake(){
+        shake = 1;
+        shakeTimer = 10;
     }
 
 

@@ -22,6 +22,7 @@ public class GameFrame extends javax.swing.JFrame {
                    @Override
                    public void run() {
                        gp.setBackground(bgc);
+                       gp.setLocation(Player.screenX,Player.screenX);
                    }
         }, 0, 17);
         gp.setLocation(0,0);
