@@ -30,6 +30,6 @@ public class Farm {
     }
 
     void draw(Graphics2D g2d){
-        g2d.drawRect(x, y, width, height);
+        //g2d.drawRect((int) (x * Player.screenMultiplier), (int) (y * Player.screenMultiplier), (int) (width * Player.screenMultiplier), (int) (height * Player.screenMultiplier));
     }
 }

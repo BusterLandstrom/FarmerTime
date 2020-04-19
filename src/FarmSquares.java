@@ -1,6 +1,10 @@
 import javafx.scene.shape.Rectangle;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class FarmSquares{
@@ -11,6 +15,8 @@ public class FarmSquares{
 
     int startXVal = 370;
     int startYVal = 170;
+    int rlSize = 400;
+    int aSize = 50;
 
     int setTime = 8;
 
@@ -22,13 +28,17 @@ public class FarmSquares{
 
     public static ArrayList<Rectangle> squareHitBoxArray = new ArrayList<>();
 
-    public FarmSquares(){
+    final BufferedImage squareSprites = ImageIO.read(new File("Sprites\\plantTile.png"));
+
+    public FarmSquares() throws IOException {
 
 
 
     }
 
     void set() {
+
+        size = (int) (aSize * Player.screenMultiplier);
 
         if (setTime > 0) {
             if (modifier == 0) {
@@ -56,144 +66,77 @@ public class FarmSquares{
         }
         if (xVal.size() > 8){
             if (canDo) {
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(0), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(1), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(2), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(3), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(4), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(5), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(6), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(2), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(3), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(4), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(5), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(6), yVal.get(7), size, size));
-                squareHitBoxArray.add(new Rectangle(xVal.get(7), yVal.get(7), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(1) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(2) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(3) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(4) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(5) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(6) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(2) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(3) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(4) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(5) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(6) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
+                squareHitBoxArray.add(new Rectangle((int) (xVal.get(7) * Player.screenMultiplier), (int) (yVal.get(7) * Player.screenMultiplier), size, size));
                 canDo = false;
             }
         }
     }
 
     void draw(Graphics2D g2d){
-        g2d.setStroke(new BasicStroke(2));
-        g2d.setColor(new Color(205,133,63));
-        if(xVal.size() == 8) {
-            g2d.drawRect(xVal.get(0), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(0), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(1), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(2), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(3), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(4), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(5), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(6), size, size);
-            g2d.drawRect(xVal.get(0), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(1), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(2), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(3), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(4), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(5), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(6), yVal.get(7), size, size);
-            g2d.drawRect(xVal.get(7), yVal.get(7), size, size);
-        }
+        g2d.drawImage(squareSprites, (int) (x * Player.screenMultiplier), (int) (y * Player.screenMultiplier), (int) (rlSize * Player.screenMultiplier), (int) (rlSize * Player.screenMultiplier),null);
     }
 
 }
