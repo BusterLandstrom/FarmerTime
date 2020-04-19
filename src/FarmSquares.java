@@ -54,7 +54,7 @@ public class FarmSquares{
         } else {
             setTime -= 1;
         }
-        if (xVal.size() == 8){
+        if (xVal.size() > 8){
             if (canDo) {
                 squareHitBoxArray.add(new Rectangle(xVal.get(0), yVal.get(0), size, size));
                 squareHitBoxArray.add(new Rectangle(xVal.get(1), yVal.get(0), size, size));
@@ -123,7 +123,6 @@ public class FarmSquares{
                 canDo = false;
             }
         }
-
     }
 
     void draw(Graphics2D g2d){
