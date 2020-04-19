@@ -161,6 +161,7 @@ public class Player {
             screenX = 0;
         }
 
+        
         shakeTimer -= 0.8;
 
         if(DayNight.r <= 0 && DayNight.g <= 0 && DayNight.b <= 0){

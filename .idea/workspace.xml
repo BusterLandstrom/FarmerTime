@@ -9,13 +9,6 @@
     <list default="true" id="108f6edb-cdca-4ebe-94f5-304d04f489ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FarmerTime_jar/FarmerTime.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FarmerTime/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +96,7 @@
       <workItem from="1587210901152" duration="5402000" />
       <workItem from="1587287035032" duration="3968000" />
       <workItem from="1587295382765" duration="3588000" />
-      <workItem from="1587309247903" duration="11750000" />
+      <workItem from="1587309247903" duration="11996000" />
     </task>
     <servers />
   </component>
