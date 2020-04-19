@@ -29,14 +29,15 @@ public class Player {
     /**/
 
     String seedString;
-    private int seed;
+    public static int seed;
     double seedTextTimeout = 0;
     static double seedTimeout = 0;
     int storedSeeds = 10;
-    static boolean canPlant = true;
+    static int canPlant = 1;
     double insideTimeout = 0;
     double idleTimeout = 9;
     double walkingTimeout = 9;
+    static int isPlanting = 0;
 
     /**/ //Character base variables
     static int x;
@@ -51,7 +52,7 @@ public class Player {
     boolean keyRight;
     boolean keyDown;
     boolean keyEsc;
-    static boolean keyE;
+    boolean keyE;
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
@@ -153,16 +154,21 @@ public class Player {
 
         if(keyE) {
             if(charHitBox.intersects(Farm.farmHitBox)) {
-                if (canPlant) {
+                if (canPlant == 1) {
                     plantSeed();
                 } else {
                     insideTimeout = 10;
+                    isPlanting = 0;
                 }
+            } else{
+                isPlanting = 0;
             }
+        } else {
+            isPlanting = 0;
         }
 
         if(seed <= 0){
-            canPlant = false;
+            canPlant = 0;
         }
 
         real = base.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
@@ -198,11 +204,11 @@ public class Player {
 
         if(charHitBox.intersects(House.houseHitBox)){
             menu = true;
-            canPlant = false;
+            canPlant = 0;
         } else if (!(charHitBox.intersects(House.houseHitBox))){
             menu = false;
             nextDayReady = true;
-            canPlant = true;
+            canPlant = 1;
             screenChangeReady = true;
         }
         if(!walking){
@@ -356,13 +362,17 @@ public class Player {
 
     void plantSeed(){
         if(seedTimeout < 0) {
-            if (seed >= 1) {
+            if (seed > 0) {
                 seed -= 1;
+                isPlanting = 1;
                 play(plantingSrc);
                 seedTimeout = 10;
             } else {
+                isPlanting = 0;
                 seedTextTimeout = 10;
             }
+        } else {
+            isPlanting = 0;
         }
     }
 
