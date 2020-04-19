@@ -18,6 +18,10 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
     DayNight dayNight;
 
+    Planting planting;
+
+    Farm farm;
+
     /**/ //Declaring Timer object as gameTimer
     Timer gameTimer;
     /**/
@@ -29,6 +33,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         sp = new SpawnBlock(975,100,this);
         house = new House(975, 200,this);
         dayNight = new DayNight();
+        planting = new Planting();
+        farm = new Farm();
 
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -38,7 +44,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
                 //sp.set();
                 house.set();
                 player.set();
+                planting.set();
                 dayNight.set();
+                //farm.set();
                 repaint();
             }
         }, 0, 17);
@@ -52,6 +60,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
         Graphics2D g2d = (Graphics2D) g;
         sp.draw(g2d);
+        planting.draw(g2d);
+        farm.draw(g2d);
         player.draw(g2d);
         house.draw(g2d);
     }

@@ -31,16 +31,16 @@ public class Player {
     String seedString;
     private int seed;
     double seedTextTimeout = 0;
-    double seedTimeout = 0;
+    static double seedTimeout = 0;
     int storedSeeds = 10;
-    boolean canPlant = true;
+    static boolean canPlant = true;
     double insideTimeout = 0;
     double idleTimeout = 9;
     double walkingTimeout = 9;
 
     /**/ //Character base variables
-    int x;
-    int y;
+    static int x;
+    static int y;
     int height;
     int width;
     /**/
@@ -51,7 +51,7 @@ public class Player {
     boolean keyRight;
     boolean keyDown;
     boolean keyEsc;
-    boolean keyE;
+    static boolean keyE;
     int direction = 1;
     boolean menu = false;
     boolean nextDayReady = true;
@@ -68,7 +68,7 @@ public class Player {
     /**/
 
     /**/ //Setting up character hit box
-    Rectangle charHitBox;
+    static Rectangle charHitBox;
     /**/
 
     /**/ //Declaring the sleep sprite
@@ -152,11 +152,17 @@ public class Player {
         Move();
 
         if(keyE) {
-            if(canPlant) {
-                plantSeed();
-            } else {
-                insideTimeout = 10;
+            if(charHitBox.intersects(Farm.farmHitBox)) {
+                if (canPlant) {
+                    plantSeed();
+                } else {
+                    insideTimeout = 10;
+                }
             }
+        }
+
+        if(seed <= 0){
+            canPlant = false;
         }
 
         real = base.deriveFont(Font.PLAIN, (int) (22 * screenMultiplier));
