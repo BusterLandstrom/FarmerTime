@@ -27,11 +27,9 @@ public class Main {
         gf.setIconImage(Toolkit.getDefaultToolkit().getImage("Sprites\\icon-export.png"));
         Dimension screenSize = getDefaultToolkit().getScreenSize();
         gf.setLocation((screenSize.width/6 - gf.getSize().width/6), (screenSize.height/6 - gf.getSize().height/6));
-
         gf.setResizable(false);
         gf.setVisible(true);
         gf.setTitle("FarmerTime");
-
         gf.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }

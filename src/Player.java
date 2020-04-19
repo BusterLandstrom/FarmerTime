@@ -18,6 +18,8 @@ public class Player {
     boolean screenChangeReady = true;
     /**/
 
+    public Dimension sc;
+
     static int screenX;
     static int screenY;
 

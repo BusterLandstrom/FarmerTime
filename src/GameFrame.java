@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.FontFormatException;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -7,6 +6,9 @@ import java.util.TimerTask;
 public class GameFrame extends javax.swing.JFrame {
 
     public static Color bgc;
+
+    Dimension sc;
+
 
     /**/ //GameFrame constructor
     public GameFrame() throws IOException, FontFormatException {
@@ -17,17 +19,17 @@ public class GameFrame extends javax.swing.JFrame {
         Timer gameTimer;
         /**/
 
+
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
                    @Override
                    public void run() {
                        gp.setBackground(bgc);
-                       gp.setLocation(Player.screenX,Player.screenX);
+                       gp.setLocation(Player.screenX,Player.screenY);
+                       gp.setSize((int) (1280 * Player.screenMultiplier), (int) (720 * Player.screenMultiplier));
                    }
         }, 0, 17);
-        gp.setLocation(0,0);
         gp.setVisible(true);
-        gp.setSize(this.getSize());
         this.add(gp);
         addKeyListener(new KeyPress(gp));
     }

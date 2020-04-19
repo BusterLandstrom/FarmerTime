@@ -22,6 +22,8 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
 
     FarmSquares farmSquares;
 
+    FPSCounter fpsCounter;
+
     /**/ //Declaring Timer object as gameTimer
     Timer gameTimer;
     /**/
@@ -36,6 +38,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         planting = new Planting();
         farm = new Farm();
         farmSquares = new FarmSquares();
+        fpsCounter = new FPSCounter();
 
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask() {
@@ -43,6 +46,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
             @Override
             public void run() {
                 //sp.set();
+                fpsCounter.set();
                 house.set();
                 player.set();
                 planting.set();
@@ -66,6 +70,7 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         farmSquares.draw(g2d);
         player.draw(g2d);
         house.draw(g2d);
+        fpsCounter.draw(g2d);
     }
     /**/
 
