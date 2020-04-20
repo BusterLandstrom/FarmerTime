@@ -66,7 +66,7 @@ public class FarmSquares{
         } else {
             setTime -= 1;
         }
-        if (xVal.size() > 8){
+        if (xVal.size() == 8){
             if (canDo) {
                 squareHitBoxArray.add(new Rectangle((int) (xVal.get(0) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));
                 squareHitBoxArray.add(new Rectangle((int) (xVal.get(1) * Player.screenMultiplier), (int) (yVal.get(0) * Player.screenMultiplier), size, size));

@@ -9,14 +9,14 @@ public class Planting {
 
     final BufferedImage dirtSprite= ImageIO.read(new File("Sprites\\dirt.png"));
 
-    int x = 0;
-    int y = 0;
+    int farmX = 0;
+    int farmY = 0;
     int size = 50;
 
     static int plantTime = -1;
 
-    ArrayList<Integer> xArray = new ArrayList<>();
-    ArrayList<Integer> yArray = new ArrayList<>();
+    static ArrayList<Integer> xArray = new ArrayList<>();
+    static ArrayList<Integer> yArray = new ArrayList<>();
 
     public Planting() throws IOException {
 
@@ -27,20 +27,6 @@ public class Planting {
 
     void set(){
 
-        if(Player.charHitBox.intersects(Farm.farmHitBox)){
-            if(Player.canPlant == 1){
-                if (Player.isPlanting == 1) {
-                    if (Player.seed > -1) {
-                       x = Player.x;
-                       y = Player.y;
-                       size = 50;
-                       xArray.add(x);
-                       yArray.add(y);
-                       plantTime += 1;
-                    }
-                }
-            }
-        }
     }
 
     void draw(Graphics2D g2d){

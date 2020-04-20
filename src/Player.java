@@ -18,10 +18,14 @@ public class Player {
     boolean screenChangeReady = true;
     /**/
 
+    int farmX = 0;
+    int farmY = 0;
+    int size = 50;
+    int plantedPlants;
+    double plantTimeout = 0;
+
     boolean shop = false;
     double shopTimeout = 5;
-
-    public Dimension sc;
 
     static int screenX;
     static int screenY;
@@ -154,15 +158,6 @@ public class Player {
 
     public void set() {
 
-        for(int i = 0; i < FarmSquares.squareHitBoxArray.size(); i++){
-            if(charHitBox.intersects(FarmSquares.squareHitBoxArray.get(i))){
-                System.out.println("You have planted the seed at square " + FarmSquares.squareHitBoxArray.get(i));
-            }
-            if(i == 64){
-                i = 0;
-            }
-        }
-
         if(shakeTimer < 0){
             shake = 0;
         } else {
@@ -188,19 +183,21 @@ public class Player {
 
         Move();
 
-        if(keyE) {
-            if(charHitBox.intersects(Farm.farmHitBox)) {
-                if (canPlant == 1) {
-                    plantSeed();
+        if(plantedPlants <= 64) {
+            if (keyE) {
+                if (charHitBox.intersects(Farm.farmHitBox)) {
+                    if (canPlant == 1) {
+                        plantSeed();
+                    } else {
+                        insideTimeout = 10;
+                        isPlanting = 0;
+                    }
                 } else {
-                    insideTimeout = 10;
                     isPlanting = 0;
                 }
-            } else{
+            } else {
                 isPlanting = 0;
             }
-        } else {
-            isPlanting = 0;
         }
 
         if(seed <= 0){
@@ -297,7 +294,7 @@ public class Player {
         }
         walkingTimeout -= 0.08;
         shopTimeout -= 0.3;
-        System.out.println(shopTimeout);
+        plantTimeout -= 0.3;
 
     }
 
@@ -410,6 +407,23 @@ public class Player {
                 play(plantingSrc);
                 seedTimeout = 10;
                 shake();
+                for(int g = 0; g <= FarmSquares.squareHitBoxArray.size() - 1 ;g++) {
+                    if (plantTimeout <= 0){
+                        if (charHitBox.intersects(FarmSquares.squareHitBoxArray.get(g))) {
+                            farmX = FarmSquares.squareHitBoxArray.get(g).x;
+                            farmY = FarmSquares.squareHitBoxArray.get(g).y;
+                            size = 50;
+                            Planting.xArray.add(farmX);
+                            Planting.yArray.add(farmY);
+                            Planting.plantTime += 1;
+                            plantedPlants = 1;
+                            plantTimeout = 5;
+                        }
+                        if (g == FarmSquares.squareHitBoxArray.size()) {
+                            g = 0;
+                        }
+                    }
+                }
             } else {
                 isPlanting = 0;
                 seedTextTimeout = 10;
