@@ -24,6 +24,17 @@ public class Player {
     int plantedPlants;
     double plantTimeout = 0;
 
+    double iceTimeout = 0;
+    Rectangle spellHitBox;
+    int spellX = 0;
+    int spellY = 0;
+    int spellSize = 20;
+    double spellTimeLimit = 0;
+    int sUp;
+    int sDirection;
+    int up;
+    boolean canSpell = true;
+
     boolean shop = false;
     double shopTimeout = 5;
 
@@ -126,6 +137,15 @@ public class Player {
     };
     /**/
 
+    /**/ //Declaring the playerIdle sprite array
+    final BufferedImage[] iceSpriteAnim = {
+            ImageIO.read( new File("Sprites\\spells\\ice\\ice1.png")),
+            ImageIO.read( new File("Sprites\\spells\\ice\\ice2.png")),
+            ImageIO.read( new File("Sprites\\spells\\ice\\ice3.png")),
+            ImageIO.read( new File("Sprites\\spells\\ice\\ice4.png"))
+    };
+
+
     /**/ //Declaring the idle player sprite
     BufferedImage idleCharSprite = playerIdleSprite[0];
     /**/
@@ -151,12 +171,74 @@ public class Player {
         width = 50;
         height = 50;
         charHitBox = new Rectangle(x,y,width,height);
+        spellHitBox = new Rectangle(0,0,0,0);
         /**/
     }
     /**/
 
 
     public void set() {
+
+        if(keyB){
+            if(canSpell) {
+                spellTimeLimit = 10;
+                iceTimeout = 15;
+                spellX = (int) (x * screenMultiplier);
+                spellY = (int) (y * screenMultiplier);
+                if (direction == 1) {
+                    sUp = 3;
+                    sDirection = 1;
+                } else if (direction == 0) {
+                    sUp = 3;
+                    sDirection = 0;
+                } else if (up == 1) {
+                    sUp = 1;
+                    sDirection = 3;
+                } else if (up == 0) {
+                    sUp = 0;
+                    sDirection = 3;
+                }
+                canSpell = false;
+            }
+        }
+
+
+        spellHitBox.x = (int) (spellX * screenMultiplier);
+        spellHitBox.y = (int) (spellY * screenMultiplier);
+        spellHitBox.width = (int) (spellSize * screenMultiplier);
+        spellHitBox.height = (int) (spellSize * screenMultiplier);
+
+        for(int g = 0; g <= FarmSquares.squareHitBoxArray.size() - 1 ;g++) {
+            if (spellHitBox.intersects(FarmSquares.squareHitBoxArray.get(g))) {
+                System.out.println("YO!");
+                spellTimeLimit = -1;
+            }
+            if (g == FarmSquares.squareHitBoxArray.size()) {
+                g = 0;
+            }
+        }
+
+        if (spellTimeLimit > 0){
+            spellSize = 20;
+            if(sUp == 1) {
+                spellY -= 6;
+
+            } else if(sUp == 0){
+                spellY += 6;
+
+            } else if (sDirection == 1){
+                spellX += 6;
+
+            } else if (sDirection == 0){
+                spellX -= 6;
+
+            }
+        } else{
+            spellSize = 0;
+            spellY = 0;
+            spellX = 0;
+            canSpell = true;
+        }
 
         if(shakeTimer < 0){
             shake = 0;
@@ -295,6 +377,12 @@ public class Player {
         walkingTimeout -= 0.08;
         shopTimeout -= 0.3;
         plantTimeout -= 0.3;
+        iceTimeout -= 0.08;
+        spellTimeLimit -= 0.02;
+
+        if(iceTimeout <= 0){
+            iceTimeout = 15;
+        }
 
     }
 
@@ -311,10 +399,12 @@ public class Player {
             walking = true;
             xs--;
             direction = 0;
+            up = 3;
         } else if (keyRight) {
             walking = true;
             xs++;
             direction = 1;
+            up = 3;
         }
 
         if (keyUp && keyDown || !keyUp && !keyDown) {
@@ -327,9 +417,13 @@ public class Player {
         } else if (keyUp) {
             walking = true;
             ys--;
+            direction = 3;
+            up = 1;
         } else if (keyDown) {
             walking = true;
             ys++;
+            direction = 3;
+            up = 0;
         }
 
 
@@ -508,6 +602,18 @@ public class Player {
         g2d.setFont(real);
         g2d.setColor(Color.RED);
         /**///Character hit box draw g2d.drawRect(charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height);
+        if(iceTimeout >= 13) {
+            g2d.drawImage(iceSpriteAnim[0],spellX, spellY, spellSize, spellSize, null);
+        } else if(iceTimeout >= 8 && iceTimeout < 13){
+            g2d.drawImage(iceSpriteAnim[1],spellX, spellY, spellSize, spellSize, null);
+
+        } else if(iceTimeout >= 5 && iceTimeout < 8){
+            g2d.drawImage(iceSpriteAnim[2],spellX, spellY, spellSize, spellSize, null);
+
+        } else if(iceTimeout > 0 && iceTimeout < 5){
+            g2d.drawImage(iceSpriteAnim[3],spellX, spellY, spellSize, spellSize, null);
+
+        }
         if (direction == 0) {
             g2d.drawImage(shadowSprite,charHitBox.x, charHitBox.y, charHitBox.width, 57, null);
             if(walking) {

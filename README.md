@@ -18,6 +18,10 @@ You will plant seeds and let the plants grow but with one twist you will be able
 
 <img src="Sprites\player_run.gif" alt="CharacterRunAnimSprite" width="200px" height="200px">
 
+**Icon**
+
+<img src="Sprites\spells\ice\ice.gif" alt="IceSprite" width="200px" height="200px">
+
 **House Sprite**
 
 <img src="Sprites\house.png" alt="HouseSprite" width="200px" height="400px">
