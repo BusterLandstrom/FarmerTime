@@ -28,6 +28,10 @@ public class FarmSquares{
 
     final BufferedImage squareSprites = ImageIO.read(new File("Sprites\\plantTile.png"));
 
+    /**/ //Declaring the Island sprite
+    final BufferedImage islandSprite = ImageIO.read(new File("Sprites\\islandImg.png"));
+    /**/
+
     public FarmSquares() throws IOException {
 
 
@@ -134,7 +138,9 @@ public class FarmSquares{
     }
 
     void draw(Graphics2D g2d){
+        g2d.drawImage(islandSprite,0, 0, (int) (1280 * Player.screenMultiplier), (int) (720 * Player.screenMultiplier), null);
         g2d.drawImage(squareSprites, (int) (x * Player.screenMultiplier), (int) (y * Player.screenMultiplier), (int) (rlSize * Player.screenMultiplier), (int) (rlSize * Player.screenMultiplier),null);
+
     }
 
 }

@@ -18,6 +18,9 @@ public class Player {
     boolean screenChangeReady = true;
     /**/
 
+    boolean shop = false;
+    double shopTimeout = 5;
+
     public Dimension sc;
 
     static int screenX;
@@ -151,6 +154,15 @@ public class Player {
 
     public void set() {
 
+        for(int i = 0; i < FarmSquares.squareHitBoxArray.size(); i++){
+            if(charHitBox.intersects(FarmSquares.squareHitBoxArray.get(i))){
+                System.out.println("You have planted the seed at square " + FarmSquares.squareHitBoxArray.get(i));
+            }
+            if(i == 64){
+                i = 0;
+            }
+        }
+
         if(shakeTimer < 0){
             shake = 0;
         } else {
@@ -231,6 +243,7 @@ public class Player {
             canPlant = 0;
         } else if (!(charHitBox.intersects(House.houseHitBox))){
             menu = false;
+            shop = false;
             nextDayReady = true;
             canPlant = 1;
             screenChangeReady = true;
@@ -283,6 +296,8 @@ public class Player {
                 idleTimeout = 9;
         }
         walkingTimeout -= 0.08;
+        shopTimeout -= 0.3;
+        System.out.println(shopTimeout);
 
     }
 
@@ -423,30 +438,47 @@ public class Player {
         gp.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if(menu) {
-                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (50 * screenMultiplier) && e.getY() <= (int) (100 * screenMultiplier)) {
-                        if(nextDayReady) {
-                            day +=  1;
-                            nextDayReady = false;
-                            storedSeeds += 2;
-                            dayTimeout = 10;
-                        } else{
-                            if(dayTimeout <= 0) {
-                                dayTextTimeout = 10;
+                if(!shop) {
+                    if (menu) {
+                        if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (50 * screenMultiplier) && e.getY() <= (int) (100 * screenMultiplier)) {
+                            if (nextDayReady) {
+                                day += 1;
+                                nextDayReady = false;
+                                storedSeeds += 2;
+                                dayTimeout = 10;
+                            } else {
+                                if (dayTimeout <= 0) {
+                                    dayTextTimeout = 10;
+                                }
+                            }
+                        }
+                        if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (120 * screenMultiplier) && e.getY() <= (int) (170 * screenMultiplier)) {
+                            seed += storedSeeds;
+                            storedSeeds -= storedSeeds;
+                        }
+
+                        if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (190 * screenMultiplier) && e.getY() <= (int) (240 * screenMultiplier)) {
+                            if (screenChangeReady = true) {
+                                screenChange = true;
+                                screenChangeReady = false;
+                            }
+                        }
+                        if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (260 * screenMultiplier) && e.getY() <= (int) (310 * screenMultiplier)) {
+                            if (shopTimeout < 0) {
+                                shop = true;
+                                shopTimeout = 5;
                             }
                         }
                     }
-                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (120 * screenMultiplier) && e.getY() <= (int) (170 * screenMultiplier)) {
-                        seed += storedSeeds;
-                        storedSeeds -= storedSeeds;
-                    }
-
-                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (190 * screenMultiplier) && e.getY() <= (int) (240 * screenMultiplier)) {
-                        if(screenChangeReady = true) {
-                            screenChange = true;
-                            screenChangeReady = false;
+                } else {
+                    if (e.getX() >= (int) (50 * screenMultiplier) && e.getX() <= (int) (150 * screenMultiplier) && e.getY() >= (int) (260 * screenMultiplier) && e.getY() <= (int) (310 * screenMultiplier)) {
+                        if (shopTimeout < 0) {
+                            shop = false;
+                            menu = true;
+                            shopTimeout = 5;
                         }
                     }
+
                 }
             }
         });
@@ -478,13 +510,22 @@ public class Player {
 
             }
         }
-        if (menu) {
+        if (!shop) {
+            if (menu) {
+                g2d.setColor(Color.BLACK);
+                g2d.drawImage(sleepSprite, (int) (50 * screenMultiplier), (int) (50 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+                g2d.drawImage(seedsSprite, (int) (50 * screenMultiplier), (int) (120 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+                g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (190 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+                g2d.drawString("Stored seeds: " + storedSeeds, (int) (1000 * screenMultiplier), (int) (90 * screenMultiplier));
+                g2d.drawString("" + screenSizeY + "p", (int) (64 * screenMultiplier), (int) (229 * screenMultiplier));
+                g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (260 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+                g2d.drawString("Store", (int) (61 * screenMultiplier), (int) (299 * screenMultiplier));
+            }
+        } else {
             g2d.setColor(Color.BLACK);
-            g2d.drawImage(sleepSprite, (int) (50 * screenMultiplier), (int) (50 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
-            g2d.drawImage(seedsSprite, (int) (50 * screenMultiplier), (int) (120 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
-            g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (190 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
             g2d.drawString("Stored seeds: " + storedSeeds, (int) (1000 * screenMultiplier), (int) (90 * screenMultiplier));
-            g2d.drawString("" + screenSizeY + "p", (int) (64 * screenMultiplier), (int) (229 * screenMultiplier));
+            g2d.drawImage(emptySprite, (int) (50 * screenMultiplier), (int) (260 * screenMultiplier), (int) (100 * screenMultiplier), (int) (50 * screenMultiplier), null);
+            g2d.drawString("Back", (int) (61 * screenMultiplier), (int) (299 * screenMultiplier));
         }
         if (seedTextTimeout > 0) {
             g2d.setColor(Color.RED);

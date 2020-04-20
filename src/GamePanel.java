@@ -31,9 +31,9 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
     /**/ //GamePanel constructor
     public GamePanel() throws IOException, FontFormatException {
 
-        player = new Player(975,100,this);
-        sp = new SpawnBlock(975,100,this);
-        house = new House(975, 200,this);
+        player = new Player(900,100,this);
+        sp = new SpawnBlock(900,100,this);
+        house = new House(900, 180,this);
         dayNight = new DayNight();
         planting = new Planting();
         farm = new Farm();
@@ -64,10 +64,10 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         super.paint(g);
 
         Graphics2D g2d = (Graphics2D) g;
-        sp.draw(g2d);
+        farmSquares.draw(g2d);
         planting.draw(g2d);
         farm.draw(g2d);
-        farmSquares.draw(g2d);
+        sp.draw(g2d);
         player.draw(g2d);
         house.draw(g2d);
         fpsCounter.draw(g2d);
