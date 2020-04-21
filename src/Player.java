@@ -10,6 +10,9 @@ import java.util.Random;
 
 public class Player {
 
+
+    final BufferedImage dirtSprite= ImageIO.read(new File("Sprites\\dirt.png"));
+
     /**/ //Screen resize variables
     public static double screenMultiplier = 1;
     public static int screenSizeX;
@@ -260,6 +263,7 @@ public class Player {
             DayNight.r = 204;
             DayNight.g = 255;
             DayNight.b = 255;
+            Planting.ready = 1;
 
         }
 
@@ -501,7 +505,7 @@ public class Player {
                 play(plantingSrc);
                 seedTimeout = 10;
                 shake();
-                for(int g = 0; g <= FarmSquares.squareHitBoxArray.size() - 1 ;g++) {
+                for(int g = 0; g < FarmSquares.squareHitBoxArray.size() ;g++) {
                     if (plantTimeout <= 0){
                         if (charHitBox.intersects(FarmSquares.squareHitBoxArray.get(g))) {
                             farmX = FarmSquares.squareHitBoxArray.get(g).x;
@@ -512,6 +516,7 @@ public class Player {
                             Planting.plantTime += 1;
                             plantedPlants = 1;
                             plantTimeout = 5;
+                            Planting.plantingDayArray.add(0);
                         }
                         if (g == FarmSquares.squareHitBoxArray.size()) {
                             g = 0;
@@ -554,6 +559,7 @@ public class Player {
                                 nextDayReady = false;
                                 storedSeeds += 2;
                                 dayTimeout = 10;
+                                Planting.ready = 1;
                             } else {
                                 if (dayTimeout <= 0) {
                                     dayTextTimeout = 10;
