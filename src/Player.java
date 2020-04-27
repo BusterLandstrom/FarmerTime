@@ -6,12 +6,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Player {
 
 
-    final BufferedImage dirtSprite= ImageIO.read(new File("Sprites\\dirt.png"));
+    final BufferedImage dirtSprite = ImageIO.read(new File("Sprites\\dirt.png"));
 
     /**/ //Screen resize variables
     public static double screenMultiplier = 1;
@@ -65,6 +66,7 @@ public class Player {
     double idleTimeout = 9;
     double walkingTimeout = 9;
     static int isPlanting = 0;
+    ArrayList<Rectangle> plantingRect = new ArrayList<>();
 
     /**/ //Character base variables
     static int x;
@@ -181,17 +183,16 @@ public class Player {
 
 
     public void set() {
-
         if(keyB){
             if(canSpell) {
                 spellTimeLimit = 10;
                 iceTimeout = 15;
                 spellX = (int) (x * screenMultiplier);
                 spellY = (int) (y * screenMultiplier);
-                if (direction == 1) {
+                if (direction == 1 && up == 3){
                     sUp = 3;
                     sDirection = 1;
-                } else if (direction == 0) {
+                } else if (direction == 0 && up == 3) {
                     sUp = 3;
                     sDirection = 0;
                 } else if (up == 1) {
@@ -211,17 +212,18 @@ public class Player {
         spellHitBox.width = (int) (spellSize * screenMultiplier);
         spellHitBox.height = (int) (spellSize * screenMultiplier);
 
-        for(int g = 0; g <= FarmSquares.squareHitBoxArray.size() - 1 ;g++) {
-            if (spellHitBox.intersects(FarmSquares.squareHitBoxArray.get(g))) {
-                System.out.println("YO!");
-                spellTimeLimit = -1;
-            }
-            if (g == FarmSquares.squareHitBoxArray.size()) {
-                g = 0;
-            }
-        }
-
         if (spellTimeLimit > 0){
+            if(plantingRect.size() > 0) {
+                for (int g = 0; g < plantingRect.size(); g++){
+                    if (spellHitBox.intersects(plantingRect.get(g))) {
+                        spellTimeLimit = -1;
+                    }
+                    if(g >= plantingRect.size()){
+                        g = 0;
+                    }
+                }
+            }
+
             spellSize = 20;
             if(sUp == 1) {
                 spellY -= 6;
@@ -246,8 +248,8 @@ public class Player {
         if(shakeTimer < 0){
             shake = 0;
         } else {
-            screenX = new Random().nextInt(3) - 2;
-            screenY = new Random().nextInt(3) - 2;
+            screenX = new Random().nextInt(4) - 2;
+            screenY = new Random().nextInt(4) - 2;
         }
 
         if(shake == 0){
@@ -421,12 +423,10 @@ public class Player {
         } else if (keyUp) {
             walking = true;
             ys--;
-            direction = 3;
             up = 1;
         } else if (keyDown) {
             walking = true;
             ys++;
-            direction = 3;
             up = 0;
         }
 
@@ -516,6 +516,7 @@ public class Player {
                             Planting.plantTime += 1;
                             plantedPlants = 1;
                             plantTimeout = 5;
+                            plantingRect.add(new Rectangle(farmX,farmY,size,size));
                             Planting.plantingDayArray.add(0);
                         }
                         if (g == FarmSquares.squareHitBoxArray.size()) {
@@ -620,18 +621,19 @@ public class Player {
             g2d.drawImage(iceSpriteAnim[3],spellX, spellY, spellSize, spellSize, null);
 
         }
+
         if (direction == 0) {
             g2d.drawImage(shadowSprite,charHitBox.x, charHitBox.y, charHitBox.width, 57, null);
             if(walking) {
                 g2d.drawImage(walkingCharSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
-            } else if (!walking){
+            } else {
                 g2d.drawImage(idleCharSprite, (int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), charHitBox.height, null);
             }
         } else {
             g2d.drawImage(shadowSprite,(int) ((x + width) * screenMultiplier), charHitBox.y, (int) (-width * screenMultiplier), 57, null);
             if(walking) {
                 g2d.drawImage(walkingCharSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
-            } else if (!walking) {
+            } else {
                 g2d.drawImage(idleCharSprite, charHitBox.x, charHitBox.y, charHitBox.width, charHitBox.height, null);
 
             }

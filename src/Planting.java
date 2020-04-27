@@ -21,8 +21,6 @@ public class Planting {
 
     };
 
-    int farmX = 0;
-    int farmY = 0;
     int size = 50;
 
     static int plantTime = -1;
@@ -44,11 +42,6 @@ public class Planting {
                 if(plantingDayArray.get(i) < 4) {
                     Integer b = plantingDayArray.get(i);
                     plantingDayArray.set(i, b + 1);
-                }
-                if(plantingDayArray.get(i) == 4) {
-                    for(int g = 0; g < FarmSquares.squareHitBoxArray.size();g++) {
-
-                    }
                 }
 
                 if(i == plantingDayArray.size() - 1){
