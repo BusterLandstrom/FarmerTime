@@ -22,6 +22,7 @@ public class Player {
     boolean screenChangeReady = true;
     /**/
 
+    /**/ //Planting square variables
     int farmX = 0;
     int farmY = 0;
     int size = 50;
